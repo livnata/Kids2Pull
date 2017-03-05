@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "897566433249",
+    "firebase_url": "https://kids2pull.firebaseio.com",
+    "project_id": "kids2pull",
+    "storage_bucket": "kids2pull.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:897566433249:android:8aecc022ce8a3d41",
+        "android_client_info": {
+          "package_name": "com.kids2pull.android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "897566433249-09o09p4at97vjp7f2fr38ta7gapmo2v7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.kids2pull.android",
+            "certificate_hash": "4bc00cdf94dca5224be03e2552341c0d22a965c8"
+          }
+        },
+        {
+          "client_id": "897566433249-vn6qqmsiqip12gd9b6ka0l5t6i4mnd8v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBpcg5eLGwkxtLRGOhZtExj9InVCtWqg70"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "897566433249-vn6qqmsiqip12gd9b6ka0l5t6i4mnd8v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
