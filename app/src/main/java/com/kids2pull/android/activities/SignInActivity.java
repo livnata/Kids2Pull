@@ -10,9 +10,16 @@ import android.widget.EditText;
 
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.kids2pull.android.R;
+import com.kids2pull.android.models.User;
+import com.kids2pull.android.models.UserType;
+
+import org.joda.time.DateTime;
 
 public class SignInActivity extends BaseActivity implements View.OnClickListener {
 
@@ -31,11 +38,12 @@ public class SignInActivity extends BaseActivity implements View.OnClickListener
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
-        FirebaseApp x = FirebaseApp.initializeApp(getBaseContext());
+        FirebaseApp.initializeApp(getBaseContext());
+        mFirebaseDatabase = FirebaseDatabase.getInstance();
         //x.getApplicationContext();
 //        mAuth = FirebaseAuth.getInstance();
 
-//        mDatabase = FirebaseDatabase.getInstance().getReference();
+        mDatabase = mFirebaseDatabase.getReference();
 
         // Views
         mEmailField = (EditText) findViewById(R.id.field_email);
@@ -46,6 +54,9 @@ public class SignInActivity extends BaseActivity implements View.OnClickListener
         // Click listeners
         mSignInButton.setOnClickListener(this);
         mSignUpButton.setOnClickListener(this);
+
+
+
     }
 
     @Override
@@ -104,6 +115,10 @@ public class SignInActivity extends BaseActivity implements View.OnClickListener
         showProgressDialog();
         String email = mEmailField.getText().toString();
         String password = mPasswordField.getText().toString();
+        // Write new User
+        writeNewUser(password, "lio",email);
+
+        hideProgressDialog();
 
 //        mAuth.createUserWithEmailAndPassword(email, password)
 //                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -122,11 +137,11 @@ public class SignInActivity extends BaseActivity implements View.OnClickListener
 //                });
     }
 
-    private void onAuthSuccess(FirebaseUser user) {
+    private void onAuthSuccess(User user) {
         String username = usernameFromEmail(user.getEmail());
 
-        // Write new user
-        writeNewUser(user.getUid(), username, user.getEmail());
+        // Write new User
+        writeNewUser(user.getPhone_number1(), username, user.getEmail());
 
         // Go to MainActivity
         startActivity(new Intent(SignInActivity.this, MainActivity.class));
@@ -162,10 +177,37 @@ public class SignInActivity extends BaseActivity implements View.OnClickListener
 
     // [START basic_write]
     private void writeNewUser(String userId, String name, String email) {
-//        User user = new User(name, email);
+        String username = usernameFromEmail(email);
 
-//        mDatabase.child("users").child(userId).setValue(user);
+        // Write new User
+
+
+        User user = new User("lior","ezra","liorez@gmail.com", DateTime.now(), UserType.PARENT, "05211111111");
+        mDatabase.child("Users").child(userId).setValue(user);
+        ValueEventListener postListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if ( dataSnapshot.exists()) {
+                    // Go to MainActivity
+                    startActivity(new Intent(SignInActivity.this, MainActivity.class));
+                    finish();
+                    System.out.println("Data saved successfully.");
+                }else {
+                    System.out.println("Data not saved successfully." );
+                }
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        };
+
+
+
     }
+
     // [END basic_write]
 
     @Override
