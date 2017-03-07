@@ -10,11 +10,11 @@ import android.widget.EditText;
 
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.kids2pull.android.R;
 import com.kids2pull.android.models.User;
 import com.kids2pull.android.models.UserType;
@@ -25,9 +25,10 @@ public class SignInActivity extends BaseActivity implements View.OnClickListener
 
     private static final String TAG = "SignInActivity";
 
-    private DatabaseReference mDatabase;
+    private DatabaseReference mUsersDatabaseRef;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
+    private ChildEventListener mChildEventListener;
 
     private EditText mEmailField;
     private EditText mPasswordField;
@@ -43,7 +44,7 @@ public class SignInActivity extends BaseActivity implements View.OnClickListener
         //x.getApplicationContext();
 //        mAuth = FirebaseAuth.getInstance();
 
-        mDatabase = mFirebaseDatabase.getReference();
+        mUsersDatabaseRef = mFirebaseDatabase.getReference().child("Users");
 
         // Views
         mEmailField = (EditText) findViewById(R.id.field_email);
@@ -183,18 +184,28 @@ public class SignInActivity extends BaseActivity implements View.OnClickListener
 
 
         User user = new User("lior","ezra","liorez@gmail.com", DateTime.now(), UserType.PARENT, "05211111111");
-        mDatabase.child("Users").child(userId).setValue(user);
-        ValueEventListener postListener = new ValueEventListener() {
+        mUsersDatabaseRef.push().setValue(user);
+
+        mChildEventListener= new ChildEventListener() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                if ( dataSnapshot.exists()) {
-                    // Go to MainActivity
-                    startActivity(new Intent(SignInActivity.this, MainActivity.class));
-                    finish();
-                    System.out.println("Data saved successfully.");
-                }else {
-                    System.out.println("Data not saved successfully." );
-                }
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                startActivity(new Intent(SignInActivity.this, MainActivity.class));
+                finish();
+                System.out.println("Data saved successfully.");
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
 
             }
 
@@ -202,7 +213,9 @@ public class SignInActivity extends BaseActivity implements View.OnClickListener
             public void onCancelled(DatabaseError databaseError) {
 
             }
+
         };
+        mUsersDatabaseRef.addChildEventListener(mChildEventListener);
 
 
 
