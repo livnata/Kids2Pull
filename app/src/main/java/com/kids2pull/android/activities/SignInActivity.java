@@ -12,7 +12,9 @@ import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.kids2pull.android.R;
+import com.kids2pull.android.models.user;
 
 public class SignInActivity extends BaseActivity implements View.OnClickListener {
 
@@ -31,11 +33,16 @@ public class SignInActivity extends BaseActivity implements View.OnClickListener
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
-        FirebaseApp x = FirebaseApp.initializeApp(getBaseContext());
+//        FirebaseApp x = FirebaseApp.initializeApp(getBaseContext());
         //x.getApplicationContext();
+
 //        mAuth = FirebaseAuth.getInstance();
 
 //        mDatabase = FirebaseDatabase.getInstance().getReference();
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference("user");
+        user user = new user();
+        myRef.setValue(user);
 
         // Views
         mEmailField = (EditText) findViewById(R.id.field_email);
