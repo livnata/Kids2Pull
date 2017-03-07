@@ -3,4 +3,19 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="main_dark">#333333</color>
+    <color name="black">#000000</color>
+    <color name="white">#FFF</color>
+    <color name="yellow">#F7C023</color>
+    <color name="transparent_black_less_transparent">#A0000000</color>
+    <color name="alpha_white_background">#B3f7f7f7</color>
+    <color name="text_secondary">#acacac</color>
+    <color name="text_primary">#333</color>
+    <color name="divider">#ccc</color>
+    <color name="text_blue">#33b5e5</color>
+    <color name="text_blue_alpha">#7733b5e5</color>
+    <color name="gray">#b3b3b3</color>
+    <color name="transparent_full_black">#00000000</color>
+    <color name="clear_blue">#1f96f8</color>
+
 </resources>

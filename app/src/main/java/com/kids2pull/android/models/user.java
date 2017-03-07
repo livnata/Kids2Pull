@@ -11,9 +11,6 @@ public class user {
     private String first_name ;
     private String last_name ;
     private String email ;
-
-
-
     private DateTime created_at ;
     private DateTime last_updated ;
     private DateTime birthday ;
