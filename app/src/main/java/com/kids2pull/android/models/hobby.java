@@ -6,7 +6,7 @@ import android.location.Location;
  * Created by livnatavikasis on 05/03/2017.
  */
 
-public class Hobby {
+public class hobby {
 
     private int hobby_id;
     private String hobby_name;

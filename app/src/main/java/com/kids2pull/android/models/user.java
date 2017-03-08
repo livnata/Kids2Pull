@@ -2,11 +2,13 @@ package com.kids2pull.android.models;
 
 import org.joda.time.DateTime;
 
+import java.util.UUID;
+
 /**
  * Created by livnatavikasis on 05/03/2017.
  */
 
-public class User {
+public class user {
     private String phone_number1;
     private String first_name ;
     private String last_name ;
@@ -15,9 +17,16 @@ public class User {
     private DateTime last_updated ;
     private String birthday ;
     private UserType userType_id ;
+    private String userId;
 
+    public user( String first_name, String email,String phone_number1) {
+        userId = UUID.randomUUID().toString();
+        this.first_name = first_name;
+        this.email = email;
+        this.phone_number1 = phone_number1;
+    }
 
-    public User(String first_name, String last_name, String email, DateTime created_at, UserType userType_id, String phone_number1) {
+    public user(String first_name, String last_name, String email, DateTime created_at, UserType userType_id, String phone_number1) {
         this.first_name = first_name;
         this.last_name = last_name;
         this.email = email;
@@ -25,6 +34,15 @@ public class User {
         this.userType_id = userType_id;
         this.phone_number1 = phone_number1;
     }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
     public String getFirst_name() {
         return first_name;
     }

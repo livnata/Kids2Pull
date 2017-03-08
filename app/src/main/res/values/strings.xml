@@ -16,6 +16,10 @@
     <string name="hint_password">password</string>
     <string name="hint_email">email</string>
     <string name="sign_in">Sign In</string>
+    <string name="sign_up_failed">Sign Up failed</string>
+    <string name="sign_up_succeed">User created</string>
+    <string name="sign_in_failed">Sign In failed</string>
+    <string name="sign_in_succeed">Succeed</string>
 
 
     <!--contacts -->
@@ -24,5 +28,6 @@
     <string name="Permission_ContactsAccessDenayed">To browse your contacts, please enable contacts permissions in Settings</string>
     <string name="settings_title">Settings</string>
     <string name="inviteCarier_AddNewContactHint">Enter the mobile number of the person you want to invite then tap the plus sign</string>
+     />
 
 </resources>

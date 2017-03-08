@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "897566433249-pvlt3s0nektt3qafj9tq3u0q709212fu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.kids2pull.android",
+            "certificate_hash": "3680576ad7f5da186c0902b3edd4c784148b2b62"
+          }
+        },
+        {
           "client_id": "897566433249-09o09p4at97vjp7f2fr38ta7gapmo2v7.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
