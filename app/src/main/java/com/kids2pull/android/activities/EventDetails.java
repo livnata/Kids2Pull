@@ -11,7 +11,6 @@ import android.view.View;
 import com.kids2pull.android.R;
 import com.kids2pull.android.lib.DatePickerFragment;
 import com.kids2pull.android.lib.TimePickerFragment;
-import com.kids2pull.android.models.Event;
 
 public class EventDetails extends AppCompatActivity {
     @Override
@@ -43,7 +42,7 @@ public class EventDetails extends AppCompatActivity {
 
     public void saveEvent()
     {
-        Event event = new Event();
+//        Event event = new Event( );
 //        event.setEvent_date();
     }
 
