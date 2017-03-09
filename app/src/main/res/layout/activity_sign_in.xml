@@ -27,7 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/icon"
         android:layout_centerHorizontal="true"
-        android:orientation="horizontal">
+        android:orientation="vertical">
 
         <EditText
             android:id="@+id/field_email"
@@ -37,7 +37,19 @@
             android:gravity="center_horizontal"
             android:hint="@string/hint_email"
             android:inputType="textEmailAddress"
-            android:maxLines="1" />
+            android:maxLines="1"
+            android:text="danysz@gmail.com" />
+
+        <EditText
+            android:id="@+id/field_phone_number"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:gravity="center_horizontal"
+            android:hint="@string/hint_phone_number"
+            android:inputType="phone"
+            android:maxLines="1"
+            android:text="+972547755955" />
 
         <EditText
             android:id="@+id/field_password"
@@ -47,7 +59,8 @@
             android:gravity="center_horizontal"
             android:hint="@string/hint_password"
             android:inputType="textPassword"
-            android:maxLines="1" />
+            android:maxLines="1"
+            android:text="123456" />
 
     </LinearLayout>
 
