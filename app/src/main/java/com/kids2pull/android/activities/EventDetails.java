@@ -34,4 +34,9 @@ public class EventDetails extends AppCompatActivity {
         newFragment.show(getSupportFragmentManager(), "timePicker");
     }
 
+    public void saveEvent()
+    {
+
+    }
+
 }

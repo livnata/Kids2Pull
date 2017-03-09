@@ -35,6 +35,17 @@ public class EventsListActivity extends AppCompatActivity implements View.OnClic
     public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
         super.onCreate(savedInstanceState, persistentState);
         setContentView(R.layout.user_events_list);
+
+        Event event = new Event();
+        event.setHobby_id(1);
+        event.setEvent_date(DateTime.now());
+        event.setEvent_id(1);
+        String[] pickers;
+        pickers = new String[]{"1", "2", "3"};
+        event.setUser_ids_picker(pickers);
+        event.setUser_ids_spreader(pickers);
+        Events.add(event);
+
         addbtn = (FloatingActionButton) findViewById(R.id.floating_button_add_new);
         eventsRecyclerView = (RecyclerView) findViewById(R.id.events_recycler_view);
         eventsRecyclerView.hasFixedSize();

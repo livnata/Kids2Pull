@@ -83,12 +83,12 @@
             android:text="@string/location"
             android:layout_below="@+id/DateAndTime" />
 
-        <ToggleButton
-            android:text="Repeat"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/location"
-            android:id="@+id/toggleButton" />
+        <!--<ToggleButton-->
+            <!--android:text="Repeat"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_below="@+id/location"-->
+            <!--android:id="@+id/toggleButton" />-->
 
         <EditText
             android:id="@+id/notification"
