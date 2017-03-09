@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">Kids2Pull</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="WaitText">Please wait…</string>
+    <string name="menu_login">Log in</string>
+    <string name="menu_logout">Log out</string>
+    <string name="login_label">Log In</string>
+    <string name="email_label">Email</string>
+    <string name="password_label">Password</string>
+    <string name="title_sign_in">Welcome</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="hint_password">password</string>
+    <string name="hint_email">email</string>
+    <string name="sign_in">Sign In</string>
+<<<<<<< de3225255e6831e8f6798f2f4e4a17b657c77b20
+    <string name="sign_up_failed">Sign Up failed</string>
+    <string name="sign_up_succeed">User created</string>
+    <string name="sign_in_failed">Sign In failed</string>
+    <string name="sign_in_succeed">Succeed</string>
+=======
+    <string name="general_pop_up_dialog_btn_no">NO</string>
+    <string name="general_pop_up_dialog_btn_yes">YES</string>
+    <string name="general_pop_up_dialog_title_notice">Notice</string>
+>>>>>>> adding contacts one of the fragments shold be finished
+
+
+    <!-- Contact Screen -->
+    <string name="ContactListFragment_SearchHint">Search Contact</string>
+    <string name="ContactListFragment_SearchHint1">Type name or phone number</string>
+
+    <string name="Permission_ContactsAccessDenayed">To browse your contacts, please enable contacts permissions in Settings</string>
+    <string name="settings_title">Settings</string>
+    <string name="inviteCarier_AddNewContactHint">Enter the mobile number of the person you want to invite then tap the plus sign</string>
+     />
+
+</resources>
