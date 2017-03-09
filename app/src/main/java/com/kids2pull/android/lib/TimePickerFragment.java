@@ -6,7 +6,10 @@ import android.icu.util.Calendar;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.text.format.DateFormat;
+import android.widget.Button;
 import android.widget.TimePicker;
+
+import com.kids2pull.android.R;
 
 /**
  * Created by liorezra on 3/9/17.
@@ -26,6 +29,11 @@ public class TimePickerFragment extends DialogFragment implements TimePickerDial
     }
 
     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-        // Do something with the time chosen by the User
+        Button eventTime = (Button) getActivity().findViewById(R.id.SetTime);
+        if(eventTime != null)
+        {
+            String sDate = hourOfDay + ":" + minute;
+            eventTime.setText(sDate);
+        }
     }
 }

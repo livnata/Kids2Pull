@@ -1,7 +1,6 @@
 package com.kids2pull.android.activities;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
@@ -14,7 +13,6 @@ import android.view.View;
 import com.kids2pull.android.R;
 import com.kids2pull.android.adapters.EventAdapter;
 import com.kids2pull.android.models.Event;
-import com.kids2pull.android.models.Hobby;
 
 import java.util.ArrayList;
 
@@ -22,13 +20,11 @@ import java.util.ArrayList;
  * Created by Anna on 09/03/2017.
  */
 
-public class EventsListActivity extends AppCompatActivity implements View.OnClickListener,
-        EventAdapter.EventClicked {
+public class EventsListActivity extends AppCompatActivity implements View.OnClickListener {
 
     private RecyclerView eventsRecyclerView;
     private Activity activity;
-    private ArrayList<Event> events;
-    private ArrayList<Hobby> hobbies;
+    private ArrayList<Event> Events;
     private EventAdapter adapter;
     private LinearLayoutManager manager;
     private FloatingActionButton addbtn;
@@ -42,7 +38,7 @@ public class EventsListActivity extends AppCompatActivity implements View.OnClic
         eventsRecyclerView.hasFixedSize();
         manager = new LinearLayoutManager(activity);
         eventsRecyclerView.setLayoutManager(manager);
-        adapter = new EventAdapter(activity, eventsRecyclerView, events, hobbies);
+        adapter = new EventAdapter(activity, eventsRecyclerView, Events);
         eventsRecyclerView.setAdapter(adapter);
         addbtn.setOnClickListener(this);
 
@@ -52,12 +48,8 @@ public class EventsListActivity extends AppCompatActivity implements View.OnClic
     public void onClick(View v) {
 
     }
-
-    @Override
-    public void onEventClicked(Event event, Hobby hobby, Activity activity) {
-        Intent intent = new Intent(activity, EventDetails.class);
-        intent.putExtra("event_id", event.getEvent_id());
-
-        startActivity( intent);
-    }
+    /*private void prepareData(){
+        Events = new ArrayList<>();
+        Event Event = ()
+    }*/
 }
