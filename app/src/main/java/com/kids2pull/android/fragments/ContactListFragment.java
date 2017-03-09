@@ -522,7 +522,7 @@
 //            }
 //        }
 //
-//        // if !isRestrictedToExistingContacts we need to check if user has query for show action mode done
+//        // if !isRestrictedToExistingContacts we need to check if User has query for show action mode done
 //        if (!isRestrictedToExistingContacts){
 //            if (query.length() > 0 && !isShowActionDone){
 //                isShowActionDone = true;

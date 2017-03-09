@@ -300,7 +300,7 @@ public class ChipsEditText extends EditText {
                         - backgroundPadding.right);
         int textWidth = (int) paint.measureText(ellipsizedText, 0, ellipsizedText.length());
 
-        // Make sure there is a minimum chip width so the user can ALWAYS
+        // Make sure there is a minimum chip width so the User can ALWAYS
         // tap a chip without difficulty.
         int width = Math.max(height * 2,
                 textWidth + (mChipPadding * 2) + backgroundPadding.left + backgroundPadding.right);

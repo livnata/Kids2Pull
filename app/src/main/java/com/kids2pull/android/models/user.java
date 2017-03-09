@@ -8,7 +8,7 @@ import java.util.UUID;
  * Created by livnatavikasis on 05/03/2017.
  */
 
-public class user {
+public class User {
     private String phone_number1;
     private String first_name;
     private String last_name;
@@ -19,14 +19,14 @@ public class user {
     private UserType userType_id;
     private String userId;
 
-    public user(String first_name, String email, String phone_number1) {
+    public User(String first_name, String email, String phone_number1) {
         userId = UUID.randomUUID().toString();
         this.first_name = first_name;
         this.email = email;
         this.phone_number1 = phone_number1;
     }
 
-    public user(String first_name, String last_name, String email, DateTime created_at, UserType userType_id, String phone_number1) {
+    public User(String first_name, String last_name, String email, DateTime created_at, UserType userType_id, String phone_number1) {
         this.first_name = first_name;
         this.last_name = last_name;
         this.email = email;

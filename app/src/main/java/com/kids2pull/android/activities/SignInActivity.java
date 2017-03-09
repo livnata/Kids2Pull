@@ -22,14 +22,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.kids2pull.android.R;
-import com.kids2pull.android.models.user;
-import com.kids2pull.android.models.UserType;
-import com.kids2pull.android.models.user;
-
-import org.joda.time.DateTime;
-import org.joda.time.format.DateTimeFormatter;
-
-import java.util.Date;
+import com.kids2pull.android.models.User;
 
 public class SignInActivity extends BaseActivity implements View.OnClickListener {
 
@@ -235,17 +228,17 @@ public class SignInActivity extends BaseActivity implements View.OnClickListener
     private void writeNewUser() {
         String username = usernameFromEmail(userEmail);
         // Write new User
-        user user = new user(username, userEmail, "+972587481448");
+        User User = new User(username, userEmail, "+972587481448");
         database = FirebaseDatabase.getInstance();
         DatabaseReference mUsersDatabaseRef = database.getReference("users");
-        DatabaseReference mUserRef = mUsersDatabaseRef.child(user.getUserId());
-        mUserRef.setValue(user);
+        DatabaseReference mUserRef = mUsersDatabaseRef.child(User.getUserId());
+        mUserRef.setValue(User);
 
         // Write new User
 
 
-        /*User user = new User("lior","ezra","liorez@gmail.com", DateTime.now(), UserType.PARENT, "05211111111");
-        mUsersDatabaseRef.push().setValue(user);
+        /*User User = new User("lior","ezra","liorez@gmail.com", DateTime.now(), UserType.PARENT, "05211111111");
+        mUsersDatabaseRef.push().setValue(User);
 */
         mChildEventListener = new ChildEventListener() {
             @Override
