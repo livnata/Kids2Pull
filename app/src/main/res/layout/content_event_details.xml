@@ -83,12 +83,15 @@
             android:layout_height="wrap_content"
             android:text="@string/location" />
 
-        <ToggleButton
+        <android.support.v7.widget.SwitchCompat
             android:text="Repeat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/location"
-            android:id="@+id/toggleButton" />
+            android:id="@+id/toggleButton"
+            android:textOn="@string/repit_event"
+            android:textOff="@string/repit_event_off"
+            />
 
         <EditText
             android:id="@+id/notification"
