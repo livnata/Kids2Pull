@@ -184,7 +184,7 @@ public class SignInActivity extends BaseActivity implements View.OnClickListener
         String username = usernameFromEmail(User.getEmail());
 
         // Write new User
-        writeNewUser(User.getPhone_number1(), username, User.getEmail());
+        writeNewUser(User.getPhone_number(), username, User.getEmail());
 
         // Go to MainActivity
         startActivity(new Intent(SignInActivity.this, MainActivity.class));
@@ -228,7 +228,7 @@ public class SignInActivity extends BaseActivity implements View.OnClickListener
     private void writeNewUser() {
         String username = usernameFromEmail(userEmail);
         // Write new User
-        User User = new User(username, userEmail, "+972587481448");
+        User User = new User(username, userEmail, "+972587481448","");
         database = FirebaseDatabase.getInstance();
         DatabaseReference mUsersDatabaseRef = database.getReference("users");
         DatabaseReference mUserRef = mUsersDatabaseRef.child(User.getUserId());
