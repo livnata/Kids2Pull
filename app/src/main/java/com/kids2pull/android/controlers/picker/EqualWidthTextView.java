@@ -40,9 +40,10 @@ public class EqualWidthTextView extends TextView {
             super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         }
         if (isFirstAccess) {
-            initUI(widthMeasureSpec,heightMeasureSpec);
-        }  if (inLoop) {
-            resizeTextViewWidthLoop(widthMeasureSpec,heightMeasureSpec);
+            initUI(widthMeasureSpec, heightMeasureSpec);
+        }
+        if (inLoop) {
+            resizeTextViewWidthLoop(widthMeasureSpec, heightMeasureSpec);
         }
     }
 
@@ -60,7 +61,7 @@ public class EqualWidthTextView extends TextView {
             isLastStep = false;
             mOriginalLineCount = textLineCount;
             mWidthMeasureSpec = widthMeasureSpec;
-            resizeTextViewWidthLoop(widthMeasureSpec,heightMeasureSpec);
+            resizeTextViewWidthLoop(widthMeasureSpec, heightMeasureSpec);
         }
     }
 

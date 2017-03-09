@@ -33,7 +33,7 @@ public class ContactListHeaderAdapter implements
 
     @Override
     public void onBindViewHolder(HeaderViewHolder headerViewHolder, int position) {
-            headerViewHolder.headerText.setText(getFirstLatterOfNameAt(position));
+        headerViewHolder.headerText.setText(getFirstLatterOfNameAt(position));
     }
 
     @Override

@@ -60,7 +60,7 @@ public class ReplacementDrawableSpan extends ReplacementSpan {
         return mDrawable.getBounds();
     }
 
-    protected Drawable getDrawable(){
+    protected Drawable getDrawable() {
         return mDrawable;
     }
 }

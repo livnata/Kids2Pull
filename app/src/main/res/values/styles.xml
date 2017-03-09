@@ -35,6 +35,7 @@
         <item name="android:alwaysDrawnWithCache">false</item>
         <item name="android:windowContentOverlay">@null</item>
     </style>
+
     <style name="text_c9_27" parent="android:Widget.TextView">
         <item name="android:textColor">@color/guid_c9</item>
         <item name="android:textSize">@dimen/guid_dim_27</item>
@@ -49,6 +50,7 @@
         <item name="android:textColor">@color/guid_c8</item>
         <item name="android:textSize">@dimen/guid_dim_9</item>
     </style>
+
     <style name="text_pop_btn_yes" parent="android:Widget.TextView">
         <item name="android:textColor">@color/guid_c3</item>
         <item name="android:textSize">@dimen/guid_dim_18</item>

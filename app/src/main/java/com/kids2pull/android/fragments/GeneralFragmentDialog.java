@@ -118,25 +118,25 @@ public class GeneralFragmentDialog extends DialogFragment {
 
         if (!TextUtils.isEmpty(mTitle)) {
             ((TextView) getView().findViewById(R.id.lbl_title)).setText(StringUtils.capitalizeFirstLetters(mTitle));
-        } else if(getView().findViewById(R.id.lbl_title) != null){
+        } else if (getView().findViewById(R.id.lbl_title) != null) {
             getView().findViewById(R.id.lbl_title).setVisibility(View.GONE);
         }
 
         if (!TextUtils.isEmpty(mText)) {
             View body = getView().findViewById(R.id.lbl_body);
-            if(body instanceof FrameLayoutWithTextView){
-                ((FrameLayoutWithTextView)body).setText(useHtmlTags ? Html.fromHtml(mText) : mText);
-            }else{
-                ((TextView)body).setText(useHtmlTags ? Html.fromHtml(mText) : mText);
+            if (body instanceof FrameLayoutWithTextView) {
+                ((FrameLayoutWithTextView) body).setText(useHtmlTags ? Html.fromHtml(mText) : mText);
+            } else {
+                ((TextView) body).setText(useHtmlTags ? Html.fromHtml(mText) : mText);
             }
 
-        } else if(getView().findViewById(R.id.lbl_body) != null){
+        } else if (getView().findViewById(R.id.lbl_body) != null) {
             getView().findViewById(R.id.lbl_body).setVisibility(View.GONE);
         }
 
         if (!TextUtils.isEmpty(mComment)) {
             ((TextView) getView().findViewById(R.id.lbl_comment)).setText(Html.fromHtml(mComment));
-        } else if(getView().findViewById(R.id.lbl_comment) != null){
+        } else if (getView().findViewById(R.id.lbl_comment) != null) {
             getView().findViewById(R.id.lbl_comment).setVisibility(View.GONE);
         }
 

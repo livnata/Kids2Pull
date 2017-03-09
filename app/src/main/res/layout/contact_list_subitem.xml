@@ -24,6 +24,6 @@
         android:layout_centerVertical="true"
         android:layout_toLeftOf="@+id/checkmark"
         android:gravity="left"
-        android:textColor="@drawable/gray_blue_text_selector"/>
+        android:textColor="@drawable/gray_blue_text_selector" />
 
 </RelativeLayout>

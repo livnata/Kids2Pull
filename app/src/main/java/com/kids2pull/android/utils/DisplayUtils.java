@@ -312,6 +312,7 @@ public class DisplayUtils {
 
     /**
      * simple expand animation with 200 millisecond duration
+     *
      * @param v the view
      */
     public static void expand(final View v) {
@@ -320,7 +321,8 @@ public class DisplayUtils {
 
     /**
      * simple expand animation with 200 millisecond duration
-     * @param v the view
+     *
+     * @param v                 the view
      * @param animationListener listener for the animation (null if not set)
      */
     public static void expand(final View v, Animation.AnimationListener animationListener) {
@@ -329,19 +331,21 @@ public class DisplayUtils {
 
     /**
      * simple expand animation
-     * @param v the view
-     * @param duration time for animation
+     *
+     * @param v                 the view
+     * @param duration          time for animation
      * @param animationListener listener for the animation (null if not set)
      */
     public static void expand(final View v, long duration, Animation.AnimationListener animationListener) {
-        expand(v,duration,-1,animationListener);
+        expand(v, duration, -1, animationListener);
     }
 
     /**
      * simple expand animation
-     * @param v the view
-     * @param duration time for animation
-     * @param height the height of the view in pixel (-1 if not const)
+     *
+     * @param v                 the view
+     * @param duration          time for animation
+     * @param height            the height of the view in pixel (-1 if not const)
      * @param animationListener listener for the animation (null if not set)
      */
     public static void expand(final View v, long duration, int height, Animation.AnimationListener animationListener) {
@@ -350,11 +354,10 @@ public class DisplayUtils {
         final int targetHeight = height > 0 ? height : v.getMeasuredHeight();
         v.getLayoutParams().height = 0;
         v.setVisibility(View.VISIBLE);
-        Animation a = new Animation()
-        {
+        Animation a = new Animation() {
             @Override
             protected void applyTransformation(float interpolatedTime, Transformation t) {
-                v.getLayoutParams().height = (int)(targetHeight * interpolatedTime);
+                v.getLayoutParams().height = (int) (targetHeight * interpolatedTime);
                 v.requestLayout();
             }
 
@@ -367,7 +370,7 @@ public class DisplayUtils {
         // 1dp/ms
         //a.setDurationInMs((int)(targetetHeight / v.getContext().getResources().getDisplayMetrics().density));
         a.setDuration(duration);
-        if(animationListener != null){
+        if (animationListener != null) {
             a.setAnimationListener(animationListener);
         }
         v.startAnimation(a);
@@ -378,20 +381,19 @@ public class DisplayUtils {
     }
 
     public static void collapse(final View v, Animation.AnimationListener animationListener) {
-        collapse(v,200,animationListener);
+        collapse(v, 200, animationListener);
     }
 
     public static void collapse(final View v, long duration, Animation.AnimationListener animationListener) {
         final int initialHeight = v.getMeasuredHeight();
 
-        Animation a = new Animation()
-        {
+        Animation a = new Animation() {
             @Override
             protected void applyTransformation(float interpolatedTime, Transformation t) {
-                if(interpolatedTime == 1){
+                if (interpolatedTime == 1) {
                     v.setVisibility(View.GONE);
-                }else{
-                    v.getLayoutParams().height = initialHeight - (int)(initialHeight * interpolatedTime);
+                } else {
+                    v.getLayoutParams().height = initialHeight - (int) (initialHeight * interpolatedTime);
                     v.requestLayout();
                 }
             }
@@ -404,7 +406,7 @@ public class DisplayUtils {
 
         // 1dp/ms
         //a.setDurationInMs((int)(initialHeight / v.getContext().getResources().getDisplayMetrics().density));
-        if(animationListener != null){
+        if (animationListener != null) {
             a.setAnimationListener(animationListener);
         }
         a.setDuration(duration);
@@ -461,7 +463,7 @@ public class DisplayUtils {
 //    }
 
     public static ImageView buildBusinessPromoDotImage(Context context, boolean isForSpinner) {
-        ShapeDrawable circle= new ShapeDrawable( new OvalShape());
+        ShapeDrawable circle = new ShapeDrawable(new OvalShape());
         int size = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 8,
                 context.getResources().getDisplayMetrics());
         circle.setIntrinsicHeight(size);
@@ -471,7 +473,7 @@ public class DisplayUtils {
         ImageView imageView = new ImageView(context);
         LinearLayout.LayoutParams layoutParams;
         if (isForSpinner) {
-           layoutParams = new LinearLayout.LayoutParams(
+            layoutParams = new LinearLayout.LayoutParams(
                     LinearLayout.LayoutParams.WRAP_CONTENT,
                     LinearLayout.LayoutParams.WRAP_CONTENT);
             layoutParams.setMargins((int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 2,

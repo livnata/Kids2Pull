@@ -24,7 +24,14 @@
     <string name="general_pop_up_dialog_btn_no">NO</string>
     <string name="general_pop_up_dialog_btn_yes">YES</string>
     <string name="general_pop_up_dialog_title_notice">Notice</string>
+    <string name="pick_up">Pick Up</string>
+    <string name="drop">Drop</string>
 
+    //SignUp Screen
+    <string name="name">Name</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="phone_number">Phone number</string>
 
     <!-- Contact Screen -->
     <string name="ContactListFragment_SearchHint">Search Contact</string>

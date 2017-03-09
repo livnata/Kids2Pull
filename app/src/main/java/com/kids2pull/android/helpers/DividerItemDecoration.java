@@ -107,7 +107,7 @@ public class DividerItemDecoration extends RecyclerView.ItemDecoration {
         }
     }
 
-    public int getDividerHeight(){
+    public int getDividerHeight() {
         return mDivider.getIntrinsicHeight();
     }
 }

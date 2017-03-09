@@ -56,7 +56,7 @@
         <attr name="bubble_enter_animation">
             <enum name="scale" value="0" />
             <enum name="alpha" value="1" />
-            <enum name="bounce" value="2"/>
+            <enum name="bounce" value="2" />
 
         </attr>
         <attr name="bubble_bounce_animation" format="boolean" />
@@ -70,9 +70,9 @@
     </declare-styleable>
 
     <declare-styleable name="ExpandableRelativeLayout">
-        <attr name="minExpandHeight" format="dimension"/>
-        <attr name="maxExpandHeight" format="dimension"/>
-        <attr name="fullExpandDuration" format="integer"/>
+        <attr name="minExpandHeight" format="dimension" />
+        <attr name="maxExpandHeight" format="dimension" />
+        <attr name="fullExpandDuration" format="integer" />
     </declare-styleable>
 
 </resources>

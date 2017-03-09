@@ -63,7 +63,7 @@ public class FrameLayoutWithTextView extends FrameLayout {
             setText(styledAttrs.getText(R.styleable.FrameLayoutWithTextView_setText));
             setTextSize(styledAttrs.getDimension(R.styleable.FrameLayoutWithTextView_textSize, 10f));
             setTextColor(styledAttrs.getColor(R.styleable.FrameLayoutWithTextView_textColor, getResources().getColor(R.color.guid_c3)));
-            setFontFamily(styledAttrs.getInt(R.styleable.FrameLayoutWithTextView_fontFamily,-1));
+            setFontFamily(styledAttrs.getInt(R.styleable.FrameLayoutWithTextView_fontFamily, -1));
             styledAttrs.recycle();
         }
     }

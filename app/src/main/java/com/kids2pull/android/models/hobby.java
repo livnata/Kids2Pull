@@ -11,7 +11,7 @@ public class hobby {
     private int hobby_id;
     private String hobby_name;
     private HobbyType hobby_type;
-    private String address ;
+    private String address;
     private Location location;
 
     public int getHobby_id() {
@@ -53,7 +53,6 @@ public class hobby {
     public void setLocation(Location location) {
         this.location = location;
     }
-
 
 
 }

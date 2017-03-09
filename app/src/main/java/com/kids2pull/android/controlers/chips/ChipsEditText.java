@@ -582,7 +582,7 @@ public class ChipsEditText extends EditText {
                 }
 
                 public boolean onActionItemClicked(ActionMode mode,
-                        MenuItem item) {
+                                                   MenuItem item) {
                     // TODO Auto-generated method stub
                     return false;
                 }

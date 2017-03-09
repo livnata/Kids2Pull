@@ -10,16 +10,16 @@ import java.util.UUID;
 
 public class user {
     private String phone_number1;
-    private String first_name ;
-    private String last_name ;
-    private String email ;
-    private DateTime created_at ;
-    private DateTime last_updated ;
-    private String birthday ;
-    private UserType userType_id ;
+    private String first_name;
+    private String last_name;
+    private String email;
+    private DateTime created_at;
+    private DateTime last_updated;
+    private String birthday;
+    private UserType userType_id;
     private String userId;
 
-    public user( String first_name, String email,String phone_number1) {
+    public user(String first_name, String email, String phone_number1) {
         userId = UUID.randomUUID().toString();
         this.first_name = first_name;
         this.email = email;
@@ -90,6 +90,7 @@ public class user {
     public void setUserType_id(UserType userType_id) {
         this.userType_id = userType_id;
     }
+
     public String getPhone_number1() {
         return phone_number1;
     }

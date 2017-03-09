@@ -25,7 +25,7 @@ public class Contact implements Serializable {
         contact.setImage(photoId != null ? getContactPhotoUri(contact.getId()) : null);
 
         String data1 = c.getString(c.getColumnIndex(Data.DATA1));
-        if(data1 != null) {
+        if (data1 != null) {
             contact.getContacts().add(new SelectableItem(data1, false));
         }
         return contact;
@@ -52,7 +52,7 @@ public class Contact implements Serializable {
 
     public Contact(Contact contact) {
         this();
-        if(contact != null) {
+        if (contact != null) {
             setId(contact.getId());
             setName(contact.getName());
             setExternalId(contact.getExternalId());

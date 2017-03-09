@@ -6,5 +6,6 @@ import java.util.List;
 
 public interface IInviteContacts {
     void onContactSelectionComplete(List<Contact> contacts);
+
     void openAppSettings();
 }

@@ -92,7 +92,7 @@ public class InteropConstants {
     public static final String PARAM_FULL_ADDRESS = "PARAM_FULL_ADDRESS";
     public static final String PARAM_SHORTCODE = "PARAM_SHORTCODE";
     public static final String PARAM_FORCE_SHOW_ADDITIONAL_ADDRESS = "PARAM_FORCE_SHOW_ADDITIONAL_ADDRESS";
-    public static final String PARAM_LATLNG_CAM_POSTION ="PARAM_LATLNG_CAM_POSTION";
+    public static final String PARAM_LATLNG_CAM_POSTION = "PARAM_LATLNG_CAM_POSTION";
     public static final String PARAM_IS_ROUTING_WHEN_DONE = "PARAM_IS_ROUTING_WHEN_DONE";
     public static final String PARAM_IS_SOURCE_IS_SEARCH = "PARAM_IS_SOURCE_IS_SEARCH";
     public static final String PARAM_CREDIT_CARD_EXPIRY = "PARAM_CREDIT_CARD_EXPIRY";

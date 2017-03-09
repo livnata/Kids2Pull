@@ -132,7 +132,7 @@
                 android:layout_height="wrap_content"
                 android:paddingBottom="5dp"
                 android:layout_gravity="right"
-                android:src="@mipmap/ic_arrow_pointer_split"/>
+                android:src="@mipmap/ic_arrow_pointer_split" />
 
         </FrameLayout>
     </FrameLayout>

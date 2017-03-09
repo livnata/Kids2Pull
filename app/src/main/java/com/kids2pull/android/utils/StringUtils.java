@@ -76,7 +76,7 @@ public class StringUtils {
         return pattern.matcher(phone).matches();
     }
 
-    public static boolean isValidStringWithRegex(String text, String regex){
+    public static boolean isValidStringWithRegex(String text, String regex) {
         Pattern pattern = Pattern.compile(regex);
         return pattern.matcher(text).matches();
     }
@@ -237,7 +237,6 @@ public class StringUtils {
     }
 
 
-
     public static Spannable applyTextSizeStyle(Context context, Spannable sentence, String part,
                                                int sizeId) {
 
@@ -386,7 +385,6 @@ public class StringUtils {
         }
         return spannableString;
     }
-
 
 
     public static Spannable applyTextColorAndWeightStyle(Context context, String sentence,

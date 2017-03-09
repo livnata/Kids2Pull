@@ -98,7 +98,7 @@ public class ContactListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
                     }
 
                     notifyItemChanged(holder.getPosition());
-                    if(notifySelectionChanged) {
+                    if (notifySelectionChanged) {
                         mSelectionChangeCallback.onItemSelectionChanged(gtContact, firstSelectable);
                     }
                 }
@@ -122,8 +122,8 @@ public class ContactListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
             @Override
             public void onClick(View view) {
                 SelectableItem item = (SelectableItem) view.getTag();
-                Contact gtContact = mSelectableContacts.get((int)getItemId(item.getParentPosition()));
-                if(gtContact.hasSelectedContacts() || mContactLimit > countSelectedItems()) {
+                Contact gtContact = mSelectableContacts.get((int) getItemId(item.getParentPosition()));
+                if (gtContact.hasSelectedContacts() || mContactLimit > countSelectedItems()) {
                     item.toggle();
 
                     if (isSingleChoiceMode) {
@@ -290,7 +290,7 @@ public class ContactListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
 
     @Override
     public int getItemCount() {
-        return mData == null || mData.isClosed()? 0 : mData.getCount();
+        return mData == null || mData.isClosed() ? 0 : mData.getCount();
     }
 
     @Override
@@ -322,7 +322,7 @@ public class ContactListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
             if (mData != null && mData.moveToFirst()) {
 
                 String DISPLAY_NAME_COLUMN = ContactsContract.Data.DISPLAY_NAME;
-                if(Build.VERSION.SDK_INT > Build.VERSION_CODES.HONEYCOMB){
+                if (Build.VERSION.SDK_INT > Build.VERSION_CODES.HONEYCOMB) {
                     DISPLAY_NAME_COLUMN = ContactsContract.Data.DISPLAY_NAME_PRIMARY;
                 }
 
@@ -343,14 +343,12 @@ public class ContactListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
         Contact contact;
         for (int i = 0; i < mSelectableContacts.size(); i++) {
             contact = mSelectableContacts.valueAt(i);
-            if(contact.hasSelectedContacts()){
+            if (contact.hasSelectedContacts()) {
                 result.add(contact);
             }
         }
         return result;
     }
-
-
 
 
     public StickyHeadersAdapter getHeaderAdapter() {
@@ -368,16 +366,16 @@ public class ContactListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
 
     public Bundle buildSavedInstance() {
         Bundle data = new Bundle();
-        data.putSerializable("mSelectableContacts", (ArrayList)getSelectedContacts());
+        data.putSerializable("mSelectableContacts", (ArrayList) getSelectedContacts());
         data.putString("mFilterQuery", mFilterQuery);
         return data;
     }
 
-    public void restoreFromSaveInstance(Bundle savedData){
-        if(savedData != null){
+    public void restoreFromSaveInstance(Bundle savedData) {
+        if (savedData != null) {
             mFilterQuery = savedData.getString("mFilterQuery");
             ArrayList<Contact> contacts = (ArrayList<Contact>) savedData.getSerializable("mSelectableContacts");
-            if(contacts != null) {
+            if (contacts != null) {
                 for (Contact contact : contacts) {
                     mSelectableContacts.put((int) contact.getId(), contact);
                 }
@@ -387,6 +385,7 @@ public class ContactListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
 
     /**
      * if enable then only contacts with phone number will be displayed
+     *
      * @param phoneOnlyMode true/false
      */
     public void setPhoneOnlyMode(boolean phoneOnlyMode) {
@@ -395,6 +394,7 @@ public class ContactListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
 
     /**
      * if enable then only one number/email in contact can selected
+     *
      * @param isSingleChoiceMode true/false
      */
     public void setSingleChoiceMode(boolean isSingleChoiceMode) {
@@ -403,25 +403,25 @@ public class ContactListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
 
     public void removeSelectedContact(Contact delContact) {
         int parentPosition = -1;
-        for(SelectableItem item : delContact.getContacts()){
-            if(item.isSelected()) {
+        for (SelectableItem item : delContact.getContacts()) {
+            if (item.isSelected()) {
                 item.setSelected(false);
                 parentPosition = item.getParentPosition();
             }
         }
         delContact.setOpened(false);
         mSelectableContacts.put((int) delContact.getId(), delContact);
-        if(parentPosition >= 0) {
+        if (parentPosition >= 0) {
             notifyItemChanged(parentPosition);
         }
     }
 
     public Contact getFirstContact() {
-        if(mData != null && mData.getCount() > 0){
-            if(mData.moveToFirst()){
+        if (mData != null && mData.getCount() > 0) {
+            if (mData.moveToFirst()) {
                 int contactId = mData.getInt(mData.getColumnIndex(ContactsContract.Data.CONTACT_ID));
                 Contact contact = mSelectableContacts.get(contactId);
-                if(contact == null){
+                if (contact == null) {
                     contact = fetchContactDataById(contactId);
                 }
                 return contact;
@@ -434,7 +434,7 @@ public class ContactListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
     public void addSelectedContact(Contact newContact) {
         mSelectableContacts.put((int) newContact.getId(), newContact);
         int parentPosition = newContact.getContacts().get(0).getParentPosition();
-        if(parentPosition >= 0){
+        if (parentPosition >= 0) {
             notifyItemChanged(parentPosition);
         }
     }
@@ -530,6 +530,7 @@ public class ContactListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
     public interface ItemSelectionChangeListener {
 
         void onItemSelectionChanged(Contact contact, SelectableItem selectedItem);
+
         void onMaxSelectionError();
     }
 

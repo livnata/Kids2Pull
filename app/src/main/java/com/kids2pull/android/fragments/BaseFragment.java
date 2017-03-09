@@ -30,11 +30,11 @@ public class BaseFragment extends Fragment {
 
 
     protected void showKeyboard(final View view) {
-        if( view != null){
+        if (view != null) {
             view.post(new Runnable() {
                 @Override
                 public void run() {
-                    if(getActivity() != null) {
+                    if (getActivity() != null) {
                         InputMethodManager mgr = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
                         mgr.showSoftInput(view, InputMethodManager.SHOW_FORCED);
                     }
@@ -76,12 +76,12 @@ public class BaseFragment extends Fragment {
     public void onStart() {
         super.onStart();
 
-        if(dialogShouldBeShown){
+        if (dialogShouldBeShown) {
             mask();
         }
     }
 
-    protected boolean isPreHoneycomb(){
+    protected boolean isPreHoneycomb() {
         return Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB;
     }
 
