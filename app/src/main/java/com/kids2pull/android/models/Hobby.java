@@ -13,6 +13,7 @@ public class Hobby {
     private HobbyType hobby_type;
     private String address;
     private Location location;
+    private String[] usersIdsArray;
 
     public int getHobby_id() {
         return hobby_id;
@@ -54,5 +55,12 @@ public class Hobby {
         this.location = location;
     }
 
+    public String[] getUsersIdsArray() {
+        return usersIdsArray;
+    }
+
+    public void setUsersIdsArray(String[] usersIdsArray) {
+        this.usersIdsArray = usersIdsArray;
+    }
 
 }

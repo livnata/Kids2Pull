@@ -2,8 +2,6 @@ package com.kids2pull.android.models;
 
 import org.joda.time.DateTime;
 
-import java.util.List;
-
 /**
  * Created by livnatavikasis on 05/03/2017.
  */
@@ -13,8 +11,8 @@ public class Event {
     private int event_id;
     private int hobby_id;
     private DateTime event_date;
-    private List<Integer> user_ids_picker;
-    private List<Integer> user_ids_spreader;
+    private String[] user_ids_picker;
+    private String[] user_ids_spreader;
 
 
     public int getEvent_id() {
@@ -41,19 +39,19 @@ public class Event {
         this.event_date = event_date;
     }
 
-    public List<Integer> getUser_ids_picker() {
+    public String[] getUser_ids_picker() {
         return user_ids_picker;
     }
 
-    public void setUser_ids_picker(List<Integer> user_ids_picker) {
+    public void setUser_ids_picker(String[] user_ids_picker) {
         this.user_ids_picker = user_ids_picker;
     }
 
-    public List<Integer> getUser_ids_spreader() {
+    public String[] getUser_ids_spreader() {
         return user_ids_spreader;
     }
 
-    public void setUser_ids_spreader(List<Integer> user_ids_spreader) {
+    public void setUser_ids_spreader(String[] user_ids_spreader) {
         this.user_ids_spreader = user_ids_spreader;
     }
 
