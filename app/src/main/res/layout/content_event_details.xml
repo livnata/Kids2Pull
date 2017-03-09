@@ -83,27 +83,34 @@
             android:layout_height="wrap_content"
             android:text="@string/location" />
 
-        <!--<ToggleButton-->
-            <!--android:text="Repeat"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_below="@+id/location"-->
-            <!--android:id="@+id/toggleButton" />-->
+        <ToggleButton
+            android:text="Repeat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/location"
+            android:id="@+id/toggleButton" />
 
         <EditText
             android:id="@+id/notification"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/notification" />
-        <Button
-            android:id="@+id/PickUpButton"
-            android:layout_width="100dp"
-            android:layout_height="50dp"
-            android:text="@string/pick_up_button"/>
-        <Button
-            android:id="@+id/DropOffButton"
-            android:layout_width="100dp"
-            android:layout_height="50dp"
-            android:text="@string/drop_off_button"/>
+        <android.support.v7.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/pick_and_drop"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/PickUpButton"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:text="@string/pick_up_button"/>
+            <Button
+                android:id="@+id/DropOffButton"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:text="@string/drop_off_button"/>
+        </android.support.v7.widget.LinearLayoutCompat>
+
     </android.support.v7.widget.LinearLayoutCompat>
 </RelativeLayout>
