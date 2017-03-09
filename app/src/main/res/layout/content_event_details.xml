@@ -12,28 +12,77 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.kids2pull.android.activities.EventDetails"
     tools:showIn="@layout/activity_event_details">
+    <android.support.v7.widget.LinearLayoutCompat
+        android:id="@+id/images"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true">
+        <android.support.design.widget.CheckableImageButton
+            android:id="@+id/ic_kids"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_menu_gallery" />
+        <android.support.design.widget.CheckableImageButton
+            android:id="@+id/ic_evene_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_menu_gallery" />
+        <android.support.design.widget.CheckableImageButton
+            android:id="@+id/ic_car"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_menu_gallery" />
+    </android.support.v7.widget.LinearLayoutCompat>
+
     <EditText
         android:id="@+id/eventName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Event Name"/>
-    <DatePicker
-        android:id="@+id/eventDate"
+        android:text="Event Name"
+        android:layout_below="@id/images"/>
+    <android.support.v7.widget.LinearLayoutCompat
+        android:id="@+id/DateAndTime"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/eventName"
-        android:datePickerMode="spinner"></DatePicker>
-    <EditText
-        android:id="@+id/location"
-        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_below="@id/eventName"
+        android:layout_centerHorizontal="true">
+        <Button
+            android:id="@+id/SetTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/pick_time"
+            android:onClick="showTimePickerDialog"
+            android:layout_below="@+id/eventName"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/pick_date"
+            android:onClick="showDatePickerDialog" />
+    </android.support.v7.widget.LinearLayoutCompat>
+
+    <android.support.v7.widget.LinearLayoutCompat
+        android:id="@+id/LocationSection"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="location"
-        android:layout_below="@+id/eventDate"/>
-    <TimePicker
-        android:id="@+id/eventTime"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:timePickerMode="spinner"
-        android:layout_below="@+id/location"
-        ></TimePicker>
+        android:layout_below="@+id/DateAndTime"
+        android:layout_centerVertical="true">
+        <EditText
+            android:id="@+id/location"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="location"
+            android:layout_below="@+id/DateAndTime"/>
+
+        <ToggleButton
+            android:text="Repeat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/location"
+            android:id="@+id/toggleButton" />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </android.support.v7.widget.LinearLayoutCompat>
 </RelativeLayout>

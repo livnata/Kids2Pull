@@ -3,11 +3,13 @@ package com.kids2pull.android.activities;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import com.kids2pull.android.R;
+import com.kids2pull.android.lib.TimePickerFragment;
 
 public class EventDetails extends AppCompatActivity {
     @Override
@@ -26,4 +28,10 @@ public class EventDetails extends AppCompatActivity {
             }
         });
     }
+
+    public void showTimePickerDialog(View v) {
+        DialogFragment newFragment = new TimePickerFragment();
+        newFragment.show(getSupportFragmentManager(), "timePicker");
+    }
+
 }
