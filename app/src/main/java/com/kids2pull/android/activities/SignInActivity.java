@@ -145,23 +145,26 @@ public class SignInActivity extends BaseActivity implements View.OnClickListener
         showProgressDialog();
 
         // Write new User
-        writeNewUser();
+//        writeNewUser();
         //  writeNewUser(password, "lio",email);
 
+
+        mAuth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        Log.d(TAG, "createUserWithEmail:onComplete:" + task.isSuccessful());
+                        hideProgressDialog();
+                        Toast.makeText(SignInActivity.this, R.string.sign_up_succeed, Toast.LENGTH_SHORT).show();
+
+                        if (!task.isSuccessful()) {
+                            Toast.makeText(SignInActivity.this, R.string.sign_up_failed, Toast.LENGTH_SHORT).show();
+                        }
+
+                    }
+                });
         hideProgressDialog();
-        mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                Log.d(TAG, "createUserWithEmail:onComplete:" + task.isSuccessful());
-                hideProgressDialog();
-                Toast.makeText(SignInActivity.this, R.string.sign_up_succeed, Toast.LENGTH_SHORT).show();
-
-                if (!task.isSuccessful()) {
-                    Toast.makeText(SignInActivity.this, R.string.sign_up_failed, Toast.LENGTH_SHORT).show();
-                }
-
-            }
-        });
+        writeNewUser(email, password,"");
 
 //        mAuth.createUserWithEmailAndPassword(email, password)
 //                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -225,10 +228,10 @@ public class SignInActivity extends BaseActivity implements View.OnClickListener
 
     // [START basic_write]
     // [START basic_write]
-    private void writeNewUser() {
+    private void writeNewUser(String userEmail,String phoneNumber, String userName) {
         String username = usernameFromEmail(userEmail);
         // Write new User
-        User User = new User(username, userEmail, "+972587481448","");
+        User User = new User(username, userEmail, "+972587481448", "");
         database = FirebaseDatabase.getInstance();
         DatabaseReference mUsersDatabaseRef = database.getReference("users");
         DatabaseReference mUserRef = mUsersDatabaseRef.child(User.getUserId());
