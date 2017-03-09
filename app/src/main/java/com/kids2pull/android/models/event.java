@@ -13,10 +13,8 @@ public class event {
     private int event_id;
     private int hobby_id;
     private DateTime event_date;
-    private List<Integer> user_ids_picker ;
-    private List<Integer> user_ids_spreader ;
-
-
+    private List<Integer> user_ids_picker;
+    private List<Integer> user_ids_spreader;
 
     public int getEvent_id() {
         return event_id;
@@ -57,7 +55,4 @@ public class event {
     public void setUser_ids_spreader(List<Integer> user_ids_spreader) {
         this.user_ids_spreader = user_ids_spreader;
     }
-
-
-
 }
