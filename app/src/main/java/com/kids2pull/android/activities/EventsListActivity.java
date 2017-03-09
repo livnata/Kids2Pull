@@ -1,6 +1,7 @@
 package com.kids2pull.android.activities;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
@@ -47,7 +48,7 @@ public class EventsListActivity extends AppCompatActivity implements View.OnClic
         event.setUser_ids_spreader(pickers);
         Events.add(event);
         //////////////////
-        
+
         addbtn = (FloatingActionButton) findViewById(R.id.floating_button_add_new);
         eventsRecyclerView = (RecyclerView) findViewById(R.id.events_recycler_view);
         eventsRecyclerView.hasFixedSize();
@@ -60,7 +61,9 @@ public class EventsListActivity extends AppCompatActivity implements View.OnClic
 
     @Override
     public void onClick(View v) {
-
+        Intent eventDetail = new Intent(this, EventDetails.class);
+//        eventDetail.putExtra(event);
+        startActivity(eventDetail);
     }
     /*private void prepareData(){
         Events = new ArrayList<>();

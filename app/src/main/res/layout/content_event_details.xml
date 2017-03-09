@@ -90,8 +90,7 @@
             android:layout_below="@+id/location"
             android:id="@+id/toggleButton"
             android:textOn="@string/repit_event"
-            android:textOff="@string/repit_event_off"
-            />
+            android:textOff="@string/repit_event_off" />
 
         <EditText
             android:id="@+id/notification"
