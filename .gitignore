@@ -65,6 +65,8 @@ local.properties
 .idea/**/tasks.xml
 .idea/dictionaries
 
+./idea/mmisc.xml
+
 # Sensitive or high-churn files:
 .idea/**/dataSources/
 .idea/**/dataSources.ids
