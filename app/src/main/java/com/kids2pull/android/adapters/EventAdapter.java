@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.kids2pull.android.R;
 import com.kids2pull.android.models.Event;
+import com.kids2pull.android.models.Hobby;
 
 import java.util.ArrayList;
 
@@ -21,18 +22,22 @@ import java.util.ArrayList;
 public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventHolder> {
     private Activity acrivity;
     private RecyclerView eventeRecyclerView;
-    private ArrayList<Event> Events;
+    private ArrayList<Event> events;
+    private ArrayList<Hobby> hobbies;
     private EventHolder holder;
     private EventClicked callback;
+    private int id_hobby;
+
 
     public static interface EventClicked {
-        public void onEventClicked(Event Event, Activity activity);
+        public void onEventClicked(Event event,Hobby hobby, Activity activity);
     }
 
-    public EventAdapter(Activity acrivity, RecyclerView eventeRecyclerView, ArrayList<Event> Events) {
+    public EventAdapter(Activity acrivity, RecyclerView eventeRecyclerView, ArrayList<Event> events, ArrayList<Hobby>hobbies) {
         this.acrivity = acrivity;
         this.eventeRecyclerView = eventeRecyclerView;
-        this.Events = Events;
+        this.events = events;
+        this.hobbies = hobbies;
     }
 
     @Override
@@ -41,6 +46,10 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventHolder>
         holder = new EventHolder(view, new EventHolder.MyHolderClicks() {
             @Override
             public void onShortClick(View item) {
+                int position = eventeRecyclerView.getChildLayoutPosition(item);
+                Event event = events.get(position);
+                Hobby hobby = hobbies.get(position);
+                callback.onEventClicked(event,hobby,acrivity);
 
             }
 
@@ -54,17 +63,23 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventHolder>
 
     @Override
     public void onBindViewHolder(EventHolder holder, int position) {
-         holder.hobbyName.setText(Events.get(position).getEvent_id());
-         holder.hobbyTime.setText(Events.get(position).getEvent_date().toString());
-        //holder.pickUp.setText(Events.get(position).getUser_ids_picker());
-        // holder.drop.setText(Events.get(position).getUser_ids_spreader());
+          id_hobby = events.get(position).getHobby_id();
+
+        for (Hobby hobby:hobbies) {
+            if(hobby.getHobby_id() == id_hobby) {
+                holder.hobbyName.setText(hobby.getHobby_name());
+            }
+        }
+
+         holder.hobbyTime.setText(events.get(position).getEvent_date().toString());
+
 
 
     }
 
     @Override
     public int getItemCount() {
-        return Events.size();
+        return events.size();
     }
 
     public static class EventHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
