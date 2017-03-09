@@ -63,6 +63,7 @@
             android:layout_below="@+id/eventName" />
 
         <Button
+            android:id="@+id/SetDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/pick_date"
@@ -71,17 +72,16 @@
 
     <android.support.v7.widget.LinearLayoutCompat
         android:id="@+id/LocationSection"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/DateAndTime"
-        android:layout_centerVertical="true">
+        android:orientation="vertical" >
 
         <EditText
             android:id="@+id/location"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/location"
-            android:layout_below="@+id/DateAndTime" />
+            android:text="@string/location" />
 
         <!--<ToggleButton-->
             <!--android:text="Repeat"-->
@@ -94,7 +94,7 @@
             android:id="@+id/notification"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Notification" />
+            android:text="@string/notification" />
         <Button
             android:id="@+id/PickUpButton"
             android:layout_width="100dp"

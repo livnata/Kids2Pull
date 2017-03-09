@@ -5,7 +5,10 @@ import android.app.Dialog;
 import android.icu.util.Calendar;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
+import android.widget.Button;
 import android.widget.DatePicker;
+
+import com.kids2pull.android.R;
 
 /**
  * Created by liorezra on 3/9/17.
@@ -27,5 +30,11 @@ public class DatePickerFragment extends DialogFragment implements DatePickerDial
 
     public void onDateSet(DatePicker view, int year, int month, int day) {
         // Do something with the date chosen by the User
+        Button eventTime = (Button) getActivity().findViewById(R.id.SetDate);
+        if(eventTime != null)
+        {
+            String sDate = day + "/" + month +"/" + year;
+            eventTime.setText(sDate);
+        }
     }
 }

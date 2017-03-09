@@ -45,5 +45,7 @@
     <string name="pick_up_button">Pick Up</string>
     <string name="drop_off_button">Drop Off</string>
     <string name="location">Location</string>
+    <string name="hint_phone_number">phone number</string>
+    <string name="notification">Notification</string>
 
 </resources>
