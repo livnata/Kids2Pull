@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/selectableItemBackground"
+    android:clickable="true"
+    android:paddingBottom="6dp"
+    android:paddingLeft="68dp"
+    android:paddingRight="10dp"
+    android:paddingTop="6dp">
+
+    <com.gettaxi.android.controls.CheckableImageView
+        android:id="@+id/checkmark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/circle_checkbox_selector" />
+
+    <CheckedTextView
+        android:id="@+id/text"
+        style="@style/text_c8_5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/checkmark"
+        android:gravity="left"
+        android:textColor="@drawable/gray_blue_text_selector"/>
+
+</RelativeLayout>
