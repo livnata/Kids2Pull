@@ -42,5 +42,6 @@
     <string name="inviteCarier_AddNewContactHint">Enter the mobile number of the person you want to invite then tap the plus sign</string>
     <string name="title_activity_event_details">EventDetails</string>
     <string name="tit_loading">Loading...</string>
+    <string name="hint_phone_number">phone number</string>
 
 </resources>
