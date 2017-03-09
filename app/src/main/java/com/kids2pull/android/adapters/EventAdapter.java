@@ -54,9 +54,9 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventHolder>
 
     @Override
     public void onBindViewHolder(EventHolder holder, int position) {
-        // holder.childName.setText(Events.get(position).getEvent_id());
-        //holder.childHobby.setText(Events.get(position).getHobby_id());
-        // holder.hobbyTime.setText(Events.get(position).getEvent_date());
+         holder.childName.setText(Events.get(position).getEvent_id());
+        holder.childHobby.setText(Events.get(position).getHobby_id());
+//         holder.hobbyTime.setText(Events.get(position).getEvent_date());
         //holder.pickUp.setText(Events.get(position).getUser_ids_picker());
         // holder.drop.setText(Events.get(position).getUser_ids_spreader());
 
