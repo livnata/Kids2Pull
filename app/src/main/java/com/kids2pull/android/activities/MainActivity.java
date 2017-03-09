@@ -2,9 +2,8 @@ package com.kids2pull.android.activities;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.View;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -12,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.kids2pull.android.R;
 
@@ -94,10 +94,42 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_send) {
 
+//            onOpenContactList();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+
+//    public void onOpenContactList() {
+//
+//        if (isFragmentVisible(InviterFragment.FRAGMENT_TAG)){
+//            getSupportFragmentManager().popBackStack();
+//        }
+//
+//        Bundle bundle = new Bundle();
+//        bundle.putBoolean(InteropConstants.PARAM_PHONE_ONLY_MODE, true);
+//        bundle.putBoolean(InteropConstants.PARAM_SINGLE_CHOICE_MODE, true);
+//        bundle.putString(InteropConstants.PARAM_ORIGIN_SOURCE, "split");
+//        bundle.putInt(InteropConstants.PARAM_ORDER_ID, ride.getId());
+//        bundle.putInt(InteropConstants.PARAM_MAX_PARTICIPANTS,
+//                ride.getRideDivision().getSplitFateMaxInvitee());
+//        bundle.putInt(InteropConstants.PARAM_MAX_CONTACTS,
+//                ride.getSplitFareParticipants().hasParticipants() ?
+//                        ride.getRideDivision().getSplitFateMaxInvitee() - ride.getSplitFareParticipants().getNumberOfActiveParticipants() :
+//                        ride.getRideDivision().getSplitFateMaxInvitee() - 1);
+//
+//        bundle.putInt(InteropConstants.PARAM_ORDER_ID, ride.getId());
+//
+//        ContactListFragment contactListFragment = new ContactListFragment();
+//        contactListFragment.setArguments(bundle);
+//        getSupportFragmentManager()
+//                .beginTransaction()
+//                .replace(R.id.fragment_layout, contactListFragment,
+//                        ContactListFragment.FRAGMENT_TAG)
+//                .addToBackStack(ContactListFragment.FRAGMENT_TAG)
+//                .commit();
+//    }
 }

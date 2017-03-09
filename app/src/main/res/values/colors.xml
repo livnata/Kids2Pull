@@ -3,19 +3,100 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
-    <color name="main_dark">#333333</color>
-    <color name="black">#000000</color>
-    <color name="white">#FFF</color>
-    <color name="yellow">#F7C023</color>
-    <color name="transparent_black_less_transparent">#A0000000</color>
-    <color name="alpha_white_background">#B3f7f7f7</color>
-    <color name="text_secondary">#acacac</color>
-    <color name="text_primary">#333</color>
-    <color name="divider">#ccc</color>
-    <color name="text_blue">#33b5e5</color>
-    <color name="text_blue_alpha">#7733b5e5</color>
-    <color name="gray">#b3b3b3</color>
-    <color name="transparent_full_black">#00000000</color>
-    <color name="clear_blue">#1f96f8</color>
 
-</resources>
+        <color name="black">#000000</color>
+        <color name="white">#FFF</color>
+        <color name="yellow">#F7C023</color>
+        <color name="transparent_black_less_transparent">#A0000000</color>
+        <color name="alpha_white_background">#B3f7f7f7</color>
+        <color name="text_secondary">#acacac</color>
+        <color name="text_primary">#333</color>
+        <color name="divider">#ccc</color>
+        <color name="text_blue">#33b5e5</color>
+        <color name="text_blue_alpha">#7733b5e5</color>
+        <color name="gray">#b3b3b3</color>
+        <color name="transparent_full_black">#00000000</color>
+
+        <!-- v3 colors -->
+        <color name="progress_bar_blue">#cc448aff</color>
+        <color name="guid_c0">#ccFFFFFF</color>
+        <color name="guid_c1">#bfFFFFFF</color>
+        <color name="guid_c2">#FFFFFF</color>
+        <color name="guid_c3">#222222</color>
+        <color name="guid_c4">#9e9e9e</color>
+        <color name="guid_c5">#4f4f4f</color>
+        <color name="guid_c6">#373737</color>
+        <color name="guid_c7">#6d6d6d</color>
+        <color name="guid_c8">#909090</color>
+        <color name="guid_c9">#1f96f8</color>
+        <color name="clear_blue">#1f96f8</color>
+        <color name="guid_c10">#ffc300</color>
+        <color name="guid_c11">#c4c4c4</color>
+        <color name="guid_c12">#a6a6a6</color>
+        <color name="guid_c13">#ebebeb</color>
+        <color name="guid_c14">#ffba00</color>
+        <color name="guid_c15">#b7b7b7</color>
+        <color name="guid_c16">#dddddd</color>
+        <color name="guid_c17">#333333</color>
+        <color name="guid_c18">#ff4400</color>
+        <color name="guid_c19">#888888</color>
+        <color name="guid_c20">#f7f7f7</color>
+        <color name="guid_c21">#d5d5d5</color>
+        <color name="guid_c22">#ff5252</color>
+        <color name="guid_c23">#008fff</color>
+        <color name="guid_c24">#3a3a3a</color>
+        <color name="guid_c25">#787777</color>
+        <color name="guid_c26">#dddddd</color>
+        <color name="guid_c27">#fbb636</color>
+        <color name="guid_c28">#808080</color>
+        <color name="guid_c29">#51C332</color>
+        <color name="guid_c30">#959595</color>
+        <color name="guid_c31">#282828</color>
+        <color name="guid_c32">#a0a0a0</color>
+        <color name="guid_c33">#60c300</color>
+        <color name="guid_c35">#c5e2ff</color>
+        <color name="guid_c37">#FF4E10</color>
+        <color name="guid_c38">#555555</color>
+        <color name="guid_c39">#B2000000</color>
+        <color name="guid_c40">#f55656</color>
+
+        <color name="btn_orange_selector_state_disbale">#7Fc4c4c4</color>
+        <color name="yellow_splash_progress">#fbb823</color>
+        <color name="yellow_button_text">#fbb822</color>
+        <color name="top_driver_background">#96040000</color>
+
+        <!-- radar -->
+        <color name="radar_blue">#1193ff</color>
+        <color name="transparent_white">#C8FFFFFF</color>
+
+        <!-- eta group -->
+        <color name="overlay_class_picker_transparent_black">#99000000</color>
+
+        <!-- busy / no taxi -->
+        <color name="background_transparent_white">#F2FFFFFF</color>
+
+        <!-- navigation drawer 5.0 -->
+        <color name="drawer_background">#424242</color>
+        <color name="drawer_item_selector_color">#333333</color>
+        <color name="drawer_divider">#DDDDDD</color>
+
+        <color name="manual_search_favorite_filter">#1f95f7</color>
+
+        <color name="yellow_circle">#ffc13b</color>
+
+
+        <color name="actionmode_background">#262626</color>
+
+        <color name="widget_background">#FFF</color>
+        <color name="selector_white">#20ffffff</color>
+
+
+        <!-- LINES -->
+        <color name="line_color">#1597fb</color>
+        <color name="line_color_disable">#AF909090</color>
+        <color name="line_subset_color">#445fc3</color>
+
+        <!-- Invite Friends -->
+        <color name="invite_screen_invite_text">#474747</color>
+
+    </resources>

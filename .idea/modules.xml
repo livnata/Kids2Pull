@@ -4,6 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Kids2Pull.iml" filepath="$PROJECT_DIR$/Kids2Pull.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/recyclerview-stickyheaders/recyclerview-stickyheaders.iml" filepath="$PROJECT_DIR$/recyclerview-stickyheaders/recyclerview-stickyheaders.iml" />
+      <module fileurl="file://$PROJECT_DIR$/recyclerview-stickyheaders/recyclerview-stickyheaders.iml" filepath="$PROJECT_DIR$/recyclerview-stickyheaders/recyclerview-stickyheaders.iml" />
     </modules>
   </component>
 </project>
