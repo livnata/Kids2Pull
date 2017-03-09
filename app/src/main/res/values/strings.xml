@@ -24,5 +24,6 @@
     <string name="Permission_ContactsAccessDenayed">To browse your contacts, please enable contacts permissions in Settings</string>
     <string name="settings_title">Settings</string>
     <string name="inviteCarier_AddNewContactHint">Enter the mobile number of the person you want to invite then tap the plus sign</string>
+    <string name="title_activity_event_details">EventDetails</string>
 
 </resources>

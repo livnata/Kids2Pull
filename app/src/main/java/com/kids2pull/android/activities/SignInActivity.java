@@ -14,7 +14,13 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.kids2pull.android.R;
+import com.kids2pull.android.models.UserType;
 import com.kids2pull.android.models.user;
+
+import org.joda.time.DateTime;
+import org.joda.time.format.DateTimeFormatter;
+
+import java.util.Date;
 
 public class SignInActivity extends BaseActivity implements View.OnClickListener {
 
@@ -33,15 +39,14 @@ public class SignInActivity extends BaseActivity implements View.OnClickListener
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
-//        FirebaseApp x = FirebaseApp.initializeApp(getBaseContext());
-        //x.getApplicationContext();
-
+        FirebaseApp.initializeApp( getApplication().getBaseContext());
 //        mAuth = FirebaseAuth.getInstance();
 
-//        mDatabase = FirebaseDatabase.getInstance().getReference();
+        mDatabase = FirebaseDatabase.getInstance().getReference();
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("user");
-        user user = new user();
+
+        user user = new user("lior","ezra","liorez@gmail.com", DateTime.now(), DateTime.now(), UserType.PARENT, 1);
         myRef.setValue(user);
 
         // Views
