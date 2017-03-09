@@ -32,6 +32,7 @@ public class EventsListActivity extends AppCompatActivity implements View.OnClic
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
         super.onCreate(savedInstanceState, persistentState);
+        setContentView(R.layout.user_events_list);
         addbtn = (FloatingActionButton) findViewById(R.id.floating_button_add_new);
         eventsRecyclerView = (RecyclerView) findViewById(R.id.events_recycler_view);
         eventsRecyclerView.hasFixedSize();
