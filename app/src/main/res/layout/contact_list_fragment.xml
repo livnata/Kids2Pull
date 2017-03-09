@@ -36,7 +36,7 @@
             android:maxLines="2"
             android:minHeight="60dp"
             android:padding="10dp"
-            android:textColor="@color/clear_blue"
+            android:textColor="@color/guid_c9"
             android:textCursorDrawable="@null" />
 
         <ImageView

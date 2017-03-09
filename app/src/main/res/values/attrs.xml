@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="ab_item_background" format="reference" />
+
+    <declare-styleable name="qqqq">
+        <!--<attr name="buttonStyle" format="reference" />-->
+        <attr name="orderButtonDrawable" format="reference" />
+        <attr name="themeType" format="string" />
+        <attr name="arrivedBackground" format="reference|color" />
+        <attr name="grey_button" format="reference" />
+        <attr name="search_button" format="reference" />
+        <attr name="orderButtonDisabled" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="AutoFitTextView">
+        <attr name="minTextSize" format="dimension" />
+        <attr name="maxTextSize" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="MaxHeightScrollView">
+        <attr name="maxHeight" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="FrameLayoutWithTextView">
+        <attr name="setText" format="string" />
+        <attr name="textSize" format="dimension" />
+        <attr name="textColor" format="color" />
+        <attr name="fontFamily">
+            <enum name="roboto_normal" value="0" />
+            <enum name="roboto_normal_bold" value="1" />
+            <enum name="roboto_light_normal" value="2" />
+            <enum name="roboto_light_bold" value="3" />
+        </attr>
+    </declare-styleable>
+
+
+    <declare-styleable name="BubbleFrameLayout">
+        <attr name="bubble_fitScreen" format="boolean" />
+        <attr name="bubble_textSize" format="dimension" />
+        <attr name="bubble_radius" format="dimension" />
+        <attr name="bubble_text" format="string" />
+        <attr name="bubble_text_gravity">
+            <enum name="center" value="17" />
+        </attr>
+        <attr name="bubble_pointer">
+            <enum name="top" value="0" />
+            <enum name="bottom" value="1" />
+            <enum name="center" value="2" />
+        </attr>
+        <attr name="bubble_background_color" format="color" />
+        <attr name="bubble_text_color" format="color" />
+        <attr name="bubble_mask" format="boolean" />
+        <attr name="bubble_margin_bottom" format="dimension" />
+        <attr name="bubble_margin_top" format="dimension" />
+        <attr name="bubble_margin_left_right" format="dimension" />
+        <attr name="bubble_enter_animation">
+            <enum name="scale" value="0" />
+            <enum name="alpha" value="1" />
+            <enum name="bounce" value="2"/>
+
+        </attr>
+        <attr name="bubble_bounce_animation" format="boolean" />
+        <attr name="bubble_mask_gravity">
+            <enum name="top" value="0" />
+            <enum name="bottom" value="1" />
+        </attr>
+        <attr name="bubble_mask_clickable" format="boolean" />
+
+        <attr name="bubble_enter_animation_duration" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="ExpandableRelativeLayout">
+        <attr name="minExpandHeight" format="dimension"/>
+        <attr name="maxExpandHeight" format="dimension"/>
+        <attr name="fullExpandDuration" format="integer"/>
+    </declare-styleable>
+
+</resources>
