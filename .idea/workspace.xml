@@ -9,6 +9,7 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< 2ec6f14cbac0dff4bf08f43a8a0404e2c4ab5b87
 <<<<<<< e5a61260981bb3816b7d552ab147f57a582f79c7
     <list default="true" id="63c59b94-763b-4cc6-8657-74882a97a408" name="Default" comment="User Auth,SignIn, SignUp . Write new User onSignUp to Firebase DB onClick btn SignUp(don't know how to get user phone number)">
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/android_android_25.xml" />
@@ -112,6 +113,9 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
 >>>>>>> adding contacts one of the fragments shold be finished
     </list>
+=======
+    <list default="true" id="63c59b94-763b-4cc6-8657-74882a97a408" name="Default" comment="" />
+>>>>>>> to be removed
     <ignored path="Kids2Pull.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -3285,7 +3289,14 @@
       <option name="project" value="LOCAL" />
       <updated>1489081547977</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="adding contacts one of the fragments shold be finished">
+      <created>1489081628528</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1489081628528</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
