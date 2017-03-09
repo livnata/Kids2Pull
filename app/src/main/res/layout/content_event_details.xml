@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"
             android:src="@drawable/ic_menu_gallery" />
         <android.support.design.widget.CheckableImageButton
-            android:id="@+id/ic_evene_type"
+            android:id="@+id/ic_event_type"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_menu_gallery" />
@@ -82,7 +82,9 @@
             android:layout_below="@+id/location"
             android:id="@+id/toggleButton" />
         <EditText
+            android:id="@+id/notification"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text = "Notification"/>
     </android.support.v7.widget.LinearLayoutCompat>
 </RelativeLayout>
