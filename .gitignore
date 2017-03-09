@@ -65,6 +65,9 @@ local.properties
 .idea/**/tasks.xml
 .idea/dictionaries
 
+./idea/mmisc.xml
+./idea/**/mmisc.xml
+
 # Sensitive or high-churn files:
 .idea/**/dataSources/
 .idea/**/dataSources.ids
@@ -153,3 +156,4 @@ captures/
 freeline.py
 freeline/
 freeline_project_description.json
+/.idea/misc.xml

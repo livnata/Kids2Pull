@@ -5,7 +5,5 @@ package com.kids2pull.android.models;
  */
 public enum UserType {
     KID, PARENT;
-
-    UserType() {
-    }
+    
 }

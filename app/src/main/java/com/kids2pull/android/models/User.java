@@ -9,7 +9,7 @@ import java.util.UUID;
  */
 
 public class User {
-    private String phone_number1;
+    private String phone_number;
     private String first_name;
     private String last_name;
     private String email;
@@ -18,22 +18,20 @@ public class User {
     private String birthday;
     private UserType userType_id;
     private String userId;
+    private String url;
 
-    public User(String first_name, String email, String phone_number1) {
+
+    public User(String first_name, String email, String phone_number,String url) {
         userId = UUID.randomUUID().toString();
         this.first_name = first_name;
         this.email = email;
-        this.phone_number1 = phone_number1;
+        this.phone_number = phone_number;
+        this.url=url;
+        this.created_at = new DateTime();
+        this.last_updated = new DateTime();
     }
 
-    public User(String first_name, String last_name, String email, DateTime created_at, UserType userType_id, String phone_number1) {
-        this.first_name = first_name;
-        this.last_name = last_name;
-        this.email = email;
-        this.created_at = created_at;
-        this.userType_id = userType_id;
-        this.phone_number1 = phone_number1;
-    }
+
 
     public String getUserId() {
         return userId;
@@ -91,12 +89,12 @@ public class User {
         this.userType_id = userType_id;
     }
 
-    public String getPhone_number1() {
-        return phone_number1;
+    public String getPhone_number() {
+        return phone_number;
     }
 
-    public void setPhone_number1(String phone_number1) {
-        this.phone_number1 = phone_number1;
+    public void setPhone_number(String phone_number) {
+        this.phone_number = phone_number;
     }
 
     public String getEmail() {
