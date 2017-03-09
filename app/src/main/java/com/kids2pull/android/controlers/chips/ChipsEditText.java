@@ -726,21 +726,21 @@ public class ChipsEditText extends EditText {
     }
 
     //    @Override
-//    public boolean dispatchKeyEvent(KeyEvent event) {
-//        if(event.getKeyCode() == KeyEvent.KEYCODE_DEL && mSelectedChip != null){
+//    public boolean dispatchKeyEvent(KeyEvent Event) {
+//        if(Event.getKeyCode() == KeyEvent.KEYCODE_DEL && mSelectedChip != null){
 //            removeChip(mSelectedChip);
 //            return true;
 //        }
-//        return super.dispatchKeyEvent(event);
+//        return super.dispatchKeyEvent(Event);
 //    }
 //
 //    @Override
-//    public boolean onKeyDown(int keyCode, KeyEvent event) {
+//    public boolean onKeyDown(int keyCode, KeyEvent Event) {
 //        if(keyCode == KeyEvent.KEYCODE_DEL && mSelectedChip != null){
 //            removeChip(mSelectedChip);
 //            return true;
 //        }
-//        return super.onKeyDown(keyCode, event);
+//        return super.onKeyDown(keyCode, Event);
 //    }
 
     @Override

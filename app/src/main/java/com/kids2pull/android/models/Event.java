@@ -8,7 +8,7 @@ import java.util.List;
  * Created by livnatavikasis on 05/03/2017.
  */
 
-public class event {
+public class Event {
 
     private int event_id;
     private int hobby_id;

@@ -12,7 +12,7 @@ import android.view.View;
 
 import com.kids2pull.android.R;
 import com.kids2pull.android.adapters.EventAdapter;
-import com.kids2pull.android.models.event;
+import com.kids2pull.android.models.Event;
 
 import java.util.ArrayList;
 
@@ -24,7 +24,7 @@ public class EventsListActivity extends AppCompatActivity implements View.OnClic
 
     private RecyclerView eventsRecyclerView;
     private Activity activity;
-    private ArrayList<event> events;
+    private ArrayList<Event> Events;
     private EventAdapter adapter;
     private LinearLayoutManager manager;
     private FloatingActionButton addbtn;
@@ -37,7 +37,7 @@ public class EventsListActivity extends AppCompatActivity implements View.OnClic
         eventsRecyclerView.hasFixedSize();
         manager = new LinearLayoutManager(activity);
         eventsRecyclerView.setLayoutManager(manager);
-        adapter = new EventAdapter(activity, eventsRecyclerView, events);
+        adapter = new EventAdapter(activity, eventsRecyclerView, Events);
         eventsRecyclerView.setAdapter(adapter);
         addbtn.setOnClickListener(this);
 
@@ -48,7 +48,7 @@ public class EventsListActivity extends AppCompatActivity implements View.OnClic
 
     }
     /*private void prepareData(){
-        events = new ArrayList<>();
-        event event = ()
+        Events = new ArrayList<>();
+        Event Event = ()
     }*/
 }

@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.kids2pull.android.R;
-import com.kids2pull.android.models.event;
+import com.kids2pull.android.models.Event;
 
 import java.util.ArrayList;
 
@@ -21,18 +21,18 @@ import java.util.ArrayList;
 public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventHolder> {
     private Activity acrivity;
     private RecyclerView eventeRecyclerView;
-    private ArrayList<event> events;
+    private ArrayList<Event> Events;
     private EventHolder holder;
     private EventClicked callback;
 
     public static interface EventClicked {
-        public void obEventClicked(event event, Activity activity);
+        public void obEventClicked(Event Event, Activity activity);
     }
 
-    public EventAdapter(Activity acrivity, RecyclerView eventeRecyclerView, ArrayList<event> events) {
+    public EventAdapter(Activity acrivity, RecyclerView eventeRecyclerView, ArrayList<Event> Events) {
         this.acrivity = acrivity;
         this.eventeRecyclerView = eventeRecyclerView;
-        this.events = events;
+        this.Events = Events;
     }
 
     @Override
@@ -54,18 +54,18 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventHolder>
 
     @Override
     public void onBindViewHolder(EventHolder holder, int position) {
-        // holder.childName.setText(events.get(position).getEvent_id());
-        //holder.childHobby.setText(events.get(position).getHobby_id());
-        // holder.hobbyTime.setText(events.get(position).getEvent_date());
-        //holder.pickUp.setText(events.get(position).getUser_ids_picker());
-        // holder.drop.setText(events.get(position).getUser_ids_spreader());
+        // holder.childName.setText(Events.get(position).getEvent_id());
+        //holder.childHobby.setText(Events.get(position).getHobby_id());
+        // holder.hobbyTime.setText(Events.get(position).getEvent_date());
+        //holder.pickUp.setText(Events.get(position).getUser_ids_picker());
+        // holder.drop.setText(Events.get(position).getUser_ids_spreader());
 
 
     }
 
     @Override
     public int getItemCount() {
-        return events.size();
+        return Events.size();
     }
 
     public static class EventHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
