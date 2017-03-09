@@ -26,7 +26,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventHolder>
     private EventClicked callback;
 
     public static interface EventClicked {
-        public void obEventClicked(Event Event, Activity activity);
+        public void onEventClicked(Event Event, Activity activity);
     }
 
     public EventAdapter(Activity acrivity, RecyclerView eventeRecyclerView, ArrayList<Event> Events) {
@@ -37,7 +37,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventHolder>
 
     @Override
     public EventHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.user_event, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.user_event_item, parent, false);
         holder = new EventHolder(view, new EventHolder.MyHolderClicks() {
             @Override
             public void onShortClick(View item) {
@@ -54,7 +54,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventHolder>
 
     @Override
     public void onBindViewHolder(EventHolder holder, int position) {
-        // holder.childName.setText(Events.get(position).getEvent_id());
+         holder.hobbyName.setText(Events.get(position).getEvent_id());
         //holder.childHobby.setText(Events.get(position).getHobby_id());
         // holder.hobbyTime.setText(Events.get(position).getEvent_date());
         //holder.pickUp.setText(Events.get(position).getUser_ids_picker());
@@ -69,8 +69,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventHolder>
     }
 
     public static class EventHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
-        TextView childName;
-        TextView childHobby;
+        TextView hobbyName;
         TextView hobbyTime;
         ImageView iconHobby;
         ImageView iconCar;
@@ -81,8 +80,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventHolder>
 
         public EventHolder(View itemView, MyHolderClicks listener) {
             super(itemView);
-            childName = (TextView) itemView.findViewById(R.id.child_name);
-            childHobby = (TextView) itemView.findViewById(R.id.child_hobby);
+            hobbyName = (TextView) itemView.findViewById(R.id.hobby_name);
             hobbyTime = (TextView) itemView.findViewById(R.id.time_hobby);
             iconHobby = (ImageView) itemView.findViewById(R.id.icon_hobby);
             iconCar = (ImageView) itemView.findViewById(R.id.icon_car);
