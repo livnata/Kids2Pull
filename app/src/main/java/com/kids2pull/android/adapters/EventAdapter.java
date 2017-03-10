@@ -71,7 +71,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventHolder>
             }
         }
 
-         holder.hobbyTime.setText(events.get(position).getEvent_date().toString());
+         holder.hobbyTime.setText(String.valueOf( events.get(position).getEvent_date()));
 
 
 

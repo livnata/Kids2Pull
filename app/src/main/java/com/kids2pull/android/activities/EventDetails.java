@@ -61,13 +61,15 @@ public class EventDetails extends AppCompatActivity {
         Button setTime = (Button)findViewById(R.id.SetTime);
         if(setTime != null)
         {
-            setTime.setText(mEvent.getEvent_date().toString());
+           /* setTime.setText(mEvent.getEvent_date().toString);*/
+           setTime.setText(String.valueOf(mEvent.getEvent_date()));
         }
 
         Button setDate = (Button)findViewById(R.id.SetDate);
         if(setDate != null)
         {
-            setDate.setText(mEvent.getEvent_date().toString());
+            /*setDate.setText(mEvent.getEvent_date().toString());*/
+            setDate.setText(String.valueOf(mEvent.getEvent_date()));
         }
 
         EditText location = (EditText)findViewById(R.id.location);

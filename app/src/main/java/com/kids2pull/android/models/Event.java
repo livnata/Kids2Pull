@@ -3,6 +3,7 @@ package com.kids2pull.android.models;
 import org.joda.time.DateTime;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.UUID;
 
 /**
@@ -13,12 +14,14 @@ public class Event {
 
     private String event_id;
     private String hobby_id;
-    private DateTime event_date;
+    private long event_date;
     private ArrayList<String> user_ids_picker;
     private ArrayList<String> user_ids_spreader;
 
+    public Event() {
+    }
 
-    public Event(String hobby_id, DateTime event_date) {
+    public Event(String hobby_id, long event_date) {
         user_ids_picker = new ArrayList<>();
         user_ids_spreader = new ArrayList<>();
 
@@ -43,11 +46,11 @@ public class Event {
         this.hobby_id = hobby_id;
     }
 
-    public DateTime getEvent_date() {
+    public long getEvent_date() {
         return event_date;
     }
 
-    public void setEvent_date(DateTime event_date) {
+    public void setEvent_date(long event_date) {
         this.event_date = event_date;
     }
 

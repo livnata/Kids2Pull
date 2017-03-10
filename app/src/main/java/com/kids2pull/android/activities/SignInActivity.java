@@ -30,6 +30,7 @@ import com.kids2pull.android.models.User;
 import org.joda.time.DateTime;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class SignInActivity extends BaseActivity implements View.OnClickListener {
 
@@ -215,7 +216,7 @@ public class SignInActivity extends BaseActivity implements View.OnClickListener
         mArrayUserIds.add(mUser.getUserId());
 
         if (isLast){
-            createDummyData2();
+           createDummyData2();
         }
 
         mChildEventListener = new ChildEventListener() {
@@ -279,7 +280,7 @@ public class SignInActivity extends BaseActivity implements View.OnClickListener
         mHobbiesRef.setValue(aHobby);
 
         if (isLast){
-            createDummyData3();
+          createDummyData3();
         }
 
     }
@@ -323,32 +324,31 @@ public class SignInActivity extends BaseActivity implements View.OnClickListener
     private void createDummyData2(){
         Hobby currentHobby;
 
-        currentHobby = new Hobby("Ballet", HobbyType.BALLET, "Tzur Itzhak", null, mArrayUserIds,new DateTime());
+        currentHobby = new Hobby("Ballet", HobbyType.BALLET, "Tzur Itzhak", null, mArrayUserIds,new DateTime().toDate().getTime());
 
         mArrayHobbies.add( currentHobby);
 
         writeNewHobby( currentHobby, false);
 
-        currentHobby = new Hobby("Ballet 2", HobbyType.BALLET, "Tzur Igal", null, mArrayUserIds,new DateTime());
+        currentHobby = new Hobby("Ballet 2", HobbyType.BALLET, "Tzur Igal", null, mArrayUserIds,new DateTime().toDate().getTime());
 
         mArrayHobbies.add( currentHobby);
 
         writeNewHobby( currentHobby, false);
 
-        currentHobby = new Hobby("Basketball", HobbyType.SPORT, "Tzur Itzhak", null, mArrayUserIds,new DateTime().plusDays( 1));
+        currentHobby = new Hobby("Basketball", HobbyType.SPORT, "Tzur Itzhak", null, mArrayUserIds,new DateTime().plusDays(1 ).toDate().getTime());
 
         mArrayHobbies.add( currentHobby);
 
         writeNewHobby( currentHobby, false);
 
-        currentHobby = new Hobby("Karate", HobbyType.MARTIAL, "Tzur Igal", null, mArrayUserIds,new DateTime().plusDays( 1));
+        currentHobby = new Hobby("Karate", HobbyType.MARTIAL, "Tzur Igal", null, mArrayUserIds,new DateTime().plusDays( 1).toDate().getTime());
 
         mArrayHobbies.add( currentHobby);
 
         writeNewHobby( currentHobby, true);
 
     }
-
     private void createDummyData3(){
         Event currentEvent;
 

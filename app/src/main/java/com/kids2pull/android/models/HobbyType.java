@@ -6,6 +6,6 @@ package com.kids2pull.android.models;
 public enum HobbyType {
     SPORT, BALLET, MUSIC, MARTIAL, ARTS;
 
-    HobbyType() {
-    }
+//    HobbyType() {
+//    }
 }

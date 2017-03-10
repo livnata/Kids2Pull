@@ -19,9 +19,12 @@ public class Hobby {
     private String address;
     private Location location;
     private ArrayList<String> usersIdsArray;
-    private DateTime hobby_date ;
+    private long hobby_date ;
 
-    public Hobby(String hobby_name, HobbyType hobby_type, String address, Location location, ArrayList<String> usersIdsArray,DateTime hobby_date) {
+    public Hobby() {
+    }
+
+    public Hobby(String hobby_name, HobbyType hobby_type, String address, Location location, ArrayList<String> usersIdsArray,long hobby_date) {
         this.hobby_id = UUID.randomUUID().toString();
         this.hobby_name = hobby_name;
         this.hobby_type = hobby_type;
@@ -30,6 +33,7 @@ public class Hobby {
         this.usersIdsArray = usersIdsArray;
         this.hobby_date = hobby_date;
     }
+
 
     public String getHobby_id() {
         return hobby_id;
@@ -78,11 +82,11 @@ public class Hobby {
     public void setUsersIdsArray(ArrayList<String> usersIdsArray) {
         this.usersIdsArray = usersIdsArray;
     }
-    public DateTime getHobby_date() {
+  public long getHobby_date() {
         return hobby_date;
-    }
+   }
 
-    public void setHobby_date(DateTime hobby_date) {
+    public void setHobby_date(long hobby_date) {
         this.hobby_date = hobby_date;
     }
 
