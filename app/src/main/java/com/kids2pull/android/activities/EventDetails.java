@@ -16,11 +16,12 @@ import com.kids2pull.android.fragments.HobbyTypeListSheetAdapter;
 import com.kids2pull.android.lib.DatePickerFragment;
 import com.kids2pull.android.lib.TimePickerFragment;
 import com.kids2pull.android.models.Event;
-import com.kids2pull.android.models.Hobby;
 
 public class EventDetails extends AppCompatActivity implements HobbyTypeListSheetAdapter.IEditHobbyTypeClickedSheetActionsListener
         {
-    @Override
+            private Event mEvent;
+
+            @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event_details);
@@ -91,7 +92,7 @@ public class EventDetails extends AppCompatActivity implements HobbyTypeListShee
     public void saveEvent()
     {
         //save event to db
-        Event event = new Event();
+//        Event event = new Event();
 //        event.setEvent_date();
     }
 
