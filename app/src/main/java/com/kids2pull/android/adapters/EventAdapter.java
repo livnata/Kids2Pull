@@ -13,6 +13,7 @@ import com.kids2pull.android.R;
 import com.kids2pull.android.models.Event;
 import com.kids2pull.android.models.Hobby;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 /**
@@ -27,6 +28,10 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventHolder>
     private EventHolder holder;
     private EventClicked callback;
     private String id_hobby;
+    private SimpleDateFormat mSimpleDateFormat;
+
+
+
 
 
     public static interface EventClicked {
@@ -38,6 +43,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventHolder>
         this.eventeRecyclerView = eventeRecyclerView;
         this.events = events;
         this.hobbies = hobbies;
+        mSimpleDateFormat = new SimpleDateFormat("hh:mm");
         callback = (EventClicked) this.acrivity;
     }
 
@@ -72,7 +78,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventHolder>
             }
         }
 
-         holder.hobbyTime.setText(String.valueOf( events.get(position).getEvent_date()));
+         holder.hobbyTime.setText(mSimpleDateFormat.format( events.get(position).getEvent_date()));
 
 
 

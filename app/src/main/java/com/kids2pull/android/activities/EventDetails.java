@@ -18,6 +18,8 @@ import com.kids2pull.android.lib.TimePickerFragment;
 import com.kids2pull.android.models.Event;
 import com.kids2pull.android.models.Hobby;
 
+import java.text.SimpleDateFormat;
+
 public class EventDetails extends AppCompatActivity implements HobbyTypeListSheetAdapter.IEditHobbyTypeClickedSheetActionsListener {
     private Event mEvent;
     private Hobby mHobby;
@@ -60,6 +62,10 @@ public class EventDetails extends AppCompatActivity implements HobbyTypeListShee
     }
 
     private void readEvent() {
+        SimpleDateFormat simpleDateFormat;
+
+        simpleDateFormat = new SimpleDateFormat("hh:mm");
+
         //read event from db
 
         EditText eventName = (EditText) findViewById(R.id.eventName);
@@ -70,7 +76,7 @@ public class EventDetails extends AppCompatActivity implements HobbyTypeListShee
         Button setTime = (Button) findViewById(R.id.SetTime);
         if (setTime != null) {
            /* setTime.setText(mEvent.getEvent_date().toString);*/
-            setTime.setText(String.valueOf(mEvent.getEvent_date()));
+            setTime.setText( simpleDateFormat.format( mEvent.getEvent_date()));
         }
 
         Button setDate = (Button) findViewById(R.id.SetDate);
