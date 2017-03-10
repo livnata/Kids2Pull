@@ -46,8 +46,10 @@
     <string name="pick_up_button">Pick Up</string>
     <string name="drop_off_button">Drop Off</string>
     <string name="location">Location</string>
+    <string name="address">Roul walenberg 24 , Tel Aviv </string>
     <string name="hint_phone_number">phone number</string>
     <string name="notification">Notification</string>
+    <string name="notification_detail">Pick me From the yard</string>
     <string name="repit_event">Repit event</string>
     <string name="repit_event_off">No</string>
 
