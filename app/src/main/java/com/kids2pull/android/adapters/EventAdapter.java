@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.kids2pull.android.R;
 import com.kids2pull.android.models.Event;
 import com.kids2pull.android.models.Hobby;
+import com.kids2pull.android.models.HobbyType;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -28,6 +29,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventHolder>
     private EventHolder holder;
     private EventClicked callback;
     private String id_hobby;
+    HobbyType hType;
     private SimpleDateFormat mSimpleDateFormat;
 
 
@@ -70,6 +72,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventHolder>
 
     @Override
     public void onBindViewHolder(EventHolder holder, int position) {
+
           id_hobby = events.get(position).getHobby_id();
 
         for (Hobby hobby:hobbies) {
@@ -94,20 +97,14 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventHolder>
         TextView hobbyTime;
         ImageView iconHobby;
         ImageView iconCar;
-        ImageView iconFinish;
-        ImageView indicatorPickUp;
-        ImageView indicatorDrop;
         MyHolderClicks myHolderClicks;
 
         public EventHolder(View itemView, MyHolderClicks listener) {
             super(itemView);
             hobbyName = (TextView) itemView.findViewById(R.id.hobby_name);
-            hobbyTime = (TextView) itemView.findViewById(R.id.time_hobby);
+            hobbyTime = (TextView) itemView.findViewById(R.id.hobby_time);
             iconHobby = (ImageView) itemView.findViewById(R.id.icon_hobby);
-            iconCar = (ImageView) itemView.findViewById(R.id.icon_car);
-            iconFinish = (ImageView) itemView.findViewById(R.id.icon_finish);
-            indicatorPickUp = (ImageView) itemView.findViewById(R.id.pick_up_indicator);
-            indicatorDrop = (ImageView) itemView.findViewById(R.id.drop_indicator);
+            iconCar = (ImageView) itemView.findViewById(R.id.icon_pick_up);
             myHolderClicks = listener;
             itemView.setOnClickListener(this);
             itemView.setOnLongClickListener(this);

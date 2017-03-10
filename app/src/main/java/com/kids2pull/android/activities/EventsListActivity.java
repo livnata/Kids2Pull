@@ -55,7 +55,7 @@ public class EventsListActivity extends AppCompatActivity implements View.OnClic
         hobbies = new ArrayList<Hobby>();
         eventsRecyclerView = (RecyclerView) findViewById(R.id.events_recycler_view);
         eventsRecyclerView.hasFixedSize();
-        manager = new LinearLayoutManager(activity);
+        manager = new LinearLayoutManager(this);
         eventsRecyclerView.setLayoutManager(manager);
         adapter = new EventAdapter(this, eventsRecyclerView, Events, hobbies);
         eventsRecyclerView.setAdapter(adapter);
@@ -81,7 +81,6 @@ public class EventsListActivity extends AppCompatActivity implements View.OnClic
             @Override
             public void onCancelled(DatabaseError databaseError) {
                 Toast.makeText(EventsListActivity.this, "The read failed", Toast.LENGTH_SHORT).show();
-
             }
         });
         referenceHobbies.addValueEventListener(new ValueEventListener() {
@@ -115,6 +114,16 @@ public class EventsListActivity extends AppCompatActivity implements View.OnClic
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 mUser = dataSnapshot.getValue(User.class);
+            }
+        });
+        referenceHobbies.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    Hobby hobby = snapshot.getValue(Hobby.class);
+                    hobbies.add(hobby);
+                }
+                adapter.notifyDataSetChanged();
             }
 
             @Override
