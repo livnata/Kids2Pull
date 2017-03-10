@@ -14,22 +14,24 @@ public class User implements Serializable {
     private String first_name;
     private String last_name;
     private String email;
-    private DateTime created_at;
-    private DateTime last_updated;
+    private long created_at;
+    private long last_updated;
     private String birthday;
     private UserType userType_id;
     private String userId;
     private String url;
 
+    public User() {
+    }
 
-    public User(String first_name, String email, String phone_number,String url) {
-        userId = UUID.randomUUID().toString();
+    public User(String aUserId, String first_name, String email, String phone_number, String url) {
+        userId = aUserId;
         this.first_name = first_name;
         this.email = email;
         this.phone_number = phone_number;
         this.url=url;
-        this.created_at = new DateTime();
-        this.last_updated = new DateTime();
+        this.created_at = new DateTime().getMillis();
+        this.last_updated = new DateTime().getMillis();
     }
 
 
@@ -58,19 +60,19 @@ public class User implements Serializable {
         this.last_name = last_name;
     }
 
-    public DateTime getCreated_at() {
+    public long getCreated_at() {
         return created_at;
     }
 
-    public void setCreated_at(DateTime created_at) {
+    public void setCreated_at(long created_at) {
         this.created_at = created_at;
     }
 
-    public DateTime getLast_updated() {
+    public long getLast_updated() {
         return last_updated;
     }
 
-    public void setLast_updated(DateTime last_updated) {
+    public void setLast_updated(long last_updated) {
         this.last_updated = last_updated;
     }
 

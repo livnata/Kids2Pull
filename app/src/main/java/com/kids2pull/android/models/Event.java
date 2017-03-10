@@ -23,8 +23,11 @@ public class Event implements Serializable {
     }
 
     public Event(String hobby_id, long event_date) {
-        user_ids_picker = new ArrayList<>();
-        user_ids_spreader = new ArrayList<>();
+        user_ids_picker = new ArrayList<String>();
+        user_ids_spreader = new ArrayList<String>();
+
+//        user_ids_picker.add( "11");
+//        user_ids_spreader.add( "11");
 
         this.event_id = UUID.randomUUID().toString();
         this.hobby_id = hobby_id;

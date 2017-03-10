@@ -105,7 +105,25 @@ public class EventsListActivity extends AppCompatActivity implements View.OnClic
     protected void onResume() {
         super.onResume();
 
-        mUser = (User)getIntent().getSerializableExtra( "user");
+        String userid;
+
+        userid = getIntent().getStringExtra("user_id");
+
+        DatabaseReference referenceUsers = database.getReference("users").child( userid);
+
+        referenceUsers.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                mUser = dataSnapshot.getValue(User.class);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+
     }
 
     @Override
