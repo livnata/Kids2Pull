@@ -24,8 +24,8 @@ import java.util.ArrayList;
 public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventHolder> {
     private Activity acrivity;
     private RecyclerView eventeRecyclerView;
-    private ArrayList<Event> events;
-    private ArrayList<Hobby> hobbies;
+    private ArrayList<Event> mArrLstEvents;
+    private ArrayList<Hobby> mArrLstHobbies;
     private EventHolder holder;
     private EventClicked callback;
     private String id_hobby;
@@ -33,18 +33,15 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventHolder>
     private SimpleDateFormat mSimpleDateFormat;
 
 
-
-
-
     public static interface EventClicked {
-        public void onEventClicked(Event event,Hobby hobby);
+        public void onEventClicked(Event event, Hobby hobby);
     }
 
-    public EventAdapter(Activity acrivity, RecyclerView eventeRecyclerView, ArrayList<Event> events, ArrayList<Hobby>hobbies) {
+    public EventAdapter(Activity acrivity, RecyclerView eventeRecyclerView, ArrayList<Event> mArrLstEvents, ArrayList<Hobby> mArrLstHobbies) {
         this.acrivity = acrivity;
         this.eventeRecyclerView = eventeRecyclerView;
-        this.events = events;
-        this.hobbies = hobbies;
+        this.mArrLstEvents = mArrLstEvents;
+        this.mArrLstHobbies = mArrLstHobbies;
         mSimpleDateFormat = new SimpleDateFormat("hh:mm");
         callback = (EventClicked) this.acrivity;
     }
@@ -55,10 +52,8 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventHolder>
         holder = new EventHolder(view, new EventHolder.MyHolderClicks() {
             @Override
             public void onShortClick(View item) {
-                int position = eventeRecyclerView.getChildLayoutPosition(item);
-                Event event = events.get(position);
-                Hobby hobby = hobbies.get(position);
-                callback.onEventClicked(event,hobby);
+//                int position = eventeRecyclerView.getChildLayoutPosition(item);
+                callback.onEventClicked( holder.mEvent, holder.mHobby);
 
             }
 
@@ -73,23 +68,28 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventHolder>
     @Override
     public void onBindViewHolder(EventHolder holder, int position) {
 
-          id_hobby = events.get(position).getHobby_id();
+        id_hobby = mArrLstEvents.get(position).getHobby_id();
 
-        for (Hobby hobby:hobbies) {
-            if(hobby.getHobby_id() == id_hobby) {
+        for (Hobby hobby : mArrLstHobbies) {
+            if (hobby.getHobby_id() == id_hobby) {
                 holder.hobbyName.setText(hobby.getHobby_name());
+                holder.setHobby( hobby);
             }
         }
 
-         holder.hobbyTime.setText(mSimpleDateFormat.format( events.get(position).getEvent_date()));
+        holder.setEvent( mArrLstEvents.get(position));
 
+        holder.hobbyTime.setText(mSimpleDateFormat.format(mArrLstEvents.get(position).getEvent_date()));
 
+    }
 
+    public void setmArrLstHobbies(ArrayList<Hobby> mArrLstHobbies) {
+        this.mArrLstHobbies = mArrLstHobbies;
     }
 
     @Override
     public int getItemCount() {
-        return events.size();
+        return mArrLstEvents.size();
     }
 
     public static class EventHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
@@ -98,6 +98,8 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventHolder>
         ImageView iconHobby;
         ImageView iconCar;
         MyHolderClicks myHolderClicks;
+        Event mEvent;
+        Hobby mHobby;
 
         public EventHolder(View itemView, MyHolderClicks listener) {
             super(itemView);
@@ -123,9 +125,16 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventHolder>
         }
 
         public interface MyHolderClicks {
-            public void onShortClick(View item);
+            void onShortClick(View item);
+            void onLongClick(View item);
+        }
 
-            public void onLongClick(View item);
+        public void setEvent(Event mEvent) {
+            this.mEvent = mEvent;
+        }
+
+        public void setHobby(Hobby mHobby) {
+            this.mHobby = mHobby;
         }
     }
 }
