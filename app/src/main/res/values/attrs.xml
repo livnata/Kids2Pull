@@ -75,4 +75,5 @@
         <attr name="fullExpandDuration" format="integer" />
     </declare-styleable>
 
+    <attr format="dimension" name="actionBarSize"/>
 </resources>
