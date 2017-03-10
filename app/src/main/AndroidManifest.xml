@@ -20,26 +20,30 @@
         </activity>
 
         <activity android:name=".activities.EventsListActivity">
-       <!-- <intent-filter>
+        <intent-filter>
             <action android:name="android.intent.action.MAIN"/>
              <category android:name="android.intent.category.LAUNCHER"/>
-        </intent-filter>-->
+        </intent-filter>
         </activity>
 
         <activity android:name=".activities.EventDetails"
             android:label="@string/title_activity_event_details"
             android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
+          <!--  <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
+            </intent-filter>-->
         </activity>
 
         <activity
             android:name=".activities.SignInActivity"
             android:label="@string/title_activity_event_details"
             android:theme="@style/AppTheme.NoActionBar"/>
-
+           <!-- <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>-->
 
 
     </application>

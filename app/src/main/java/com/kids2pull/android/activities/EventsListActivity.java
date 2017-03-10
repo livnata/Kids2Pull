@@ -52,10 +52,9 @@ public class EventsListActivity extends AppCompatActivity implements View.OnClic
         eventsRecyclerView.hasFixedSize();
         manager = new LinearLayoutManager(activity);
         eventsRecyclerView.setLayoutManager(manager);
-        adapter = new EventAdapter(activity, eventsRecyclerView, Events,hobbies);
+        adapter = new EventAdapter(this, eventsRecyclerView, Events,hobbies);
         eventsRecyclerView.setAdapter(adapter);
         addbtn.setOnClickListener(this);
-
         //Read from DB
         //get reference to events
         database = FirebaseDatabase.getInstance();
@@ -71,6 +70,7 @@ public class EventsListActivity extends AppCompatActivity implements View.OnClic
                 Events.add(event);
 
                 }
+                adapter.notifyDataSetChanged();
             }
 
 
@@ -87,7 +87,7 @@ public class EventsListActivity extends AppCompatActivity implements View.OnClic
                 Hobby hobby = snapshot.getValue(Hobby.class);
                 hobbies.add(hobby);
             }
-
+            adapter.notifyDataSetChanged();
         }
 
         @Override
@@ -95,6 +95,8 @@ public class EventsListActivity extends AppCompatActivity implements View.OnClic
 
         }
     });
+
+
     }
 
     @Override
@@ -103,8 +105,8 @@ public class EventsListActivity extends AppCompatActivity implements View.OnClic
     }
 
     @Override
-    public void onEventClicked(Event event, Hobby hobby, Activity activity) {
-        Intent intent = new Intent(activity,EventDetails.class);
+    public void onEventClicked(Event event, Hobby hobby) {
+        Intent intent = new Intent(EventsListActivity.this, EventDetails.class);
         intent.putExtra("name_hobby",hobby.getHobby_name());
         startActivity(intent);
     }

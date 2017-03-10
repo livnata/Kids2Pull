@@ -1,6 +1,7 @@
 package com.kids2pull.android.activities;
 
 import android.content.Intent;
+import android.icu.text.SimpleDateFormat;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
@@ -259,7 +260,9 @@ public class SignInActivity extends BaseActivity implements View.OnClickListener
             signIn(mEmailField.getText().toString(), mPasswordField.getText().toString());
         } else if (i == R.id.button_sign_up) {
             signUp(mEmailField.getText().toString(), mPasswordField.getText().toString(), mPhoneNumberField.getText().toString(), false);
+
         }
+
     }
 
     private View.OnLongClickListener OnLongSignUp = new View.OnLongClickListener() {
@@ -324,7 +327,7 @@ public class SignInActivity extends BaseActivity implements View.OnClickListener
     private void createDummyData2(){
         Hobby currentHobby;
 
-        currentHobby = new Hobby("Ballet", HobbyType.BALLET, "Tzur Itzhak", null, mArrayUserIds,new DateTime().toDate().getTime());
+        currentHobby = new Hobby("Ballet", HobbyType.BALLET, "Tzur Itzhak", null, mArrayUserIds, new DateTime().toDate().getTime());
 
         mArrayHobbies.add( currentHobby);
 

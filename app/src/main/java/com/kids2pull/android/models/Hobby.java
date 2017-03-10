@@ -1,10 +1,12 @@
 package com.kids2pull.android.models;
 
+import android.icu.text.SimpleDateFormat;
 import android.location.Location;
 
 import org.joda.time.DateTime;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.UUID;
 
 /**
@@ -89,6 +91,10 @@ public class Hobby {
     public void setHobby_date(long hobby_date) {
         this.hobby_date = hobby_date;
     }
+
+   /* public String getHobbyDateFormattedString() {
+        return new SimpleDateFormat("HH-mm").format(new Date(hobby_date));
+    }*/
 
 
 }

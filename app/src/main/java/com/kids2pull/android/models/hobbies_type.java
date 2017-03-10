@@ -6,13 +6,13 @@ import java.util.UUID;
  * Created by livnatavikasis on 10/03/2017.
  */
 
-public class Hobbies_type {
+public class hobbies_type {
 
 
     String hobby_type_id;
     String hobby_typpe_name;
 
-    public Hobbies_type(String hobby_typpe_name) {
+    public hobbies_type(String hobby_typpe_name) {
         this.hobby_type_id = UUID.randomUUID().toString();
         this.hobby_typpe_name = hobby_typpe_name;
     }

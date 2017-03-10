@@ -30,7 +30,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventHolder>
 
 
     public static interface EventClicked {
-        public void onEventClicked(Event event,Hobby hobby, Activity activity);
+        public void onEventClicked(Event event,Hobby hobby);
     }
 
     public EventAdapter(Activity acrivity, RecyclerView eventeRecyclerView, ArrayList<Event> events, ArrayList<Hobby>hobbies) {
@@ -38,6 +38,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventHolder>
         this.eventeRecyclerView = eventeRecyclerView;
         this.events = events;
         this.hobbies = hobbies;
+        callback = (EventClicked) this.acrivity;
     }
 
     @Override
@@ -49,7 +50,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventHolder>
                 int position = eventeRecyclerView.getChildLayoutPosition(item);
                 Event event = events.get(position);
                 Hobby hobby = hobbies.get(position);
-                callback.onEventClicked(event,hobby,acrivity);
+                callback.onEventClicked(event,hobby);
 
             }
 
