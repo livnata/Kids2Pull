@@ -1,7 +1,6 @@
 package com.kids2pull.android.activities;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
@@ -15,8 +14,6 @@ import com.kids2pull.android.R;
 import com.kids2pull.android.adapters.EventAdapter;
 import com.kids2pull.android.models.Event;
 
-import org.joda.time.DateTime;
-
 import java.util.ArrayList;
 
 /**
@@ -27,7 +24,7 @@ public class EventsListActivity extends AppCompatActivity implements View.OnClic
 
     private RecyclerView eventsRecyclerView;
     private Activity activity;
-    private ArrayList<Event> Events = new ArrayList<>();
+    private ArrayList<Event> Events;
     private EventAdapter adapter;
     private LinearLayoutManager manager;
     private FloatingActionButton addbtn;
@@ -36,19 +33,6 @@ public class EventsListActivity extends AppCompatActivity implements View.OnClic
     public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
         super.onCreate(savedInstanceState, persistentState);
         setContentView(R.layout.user_events_list);
-
-        //dummy data
-        Event event = new Event();
-        event.setHobby_id(1);
-        event.setEvent_date(DateTime.now());
-        event.setEvent_id(1);
-        String[] pickers;
-        pickers = new String[]{"1", "2", "3"};
-        event.setUser_ids_picker(pickers);
-        event.setUser_ids_spreader(pickers);
-        Events.add(event);
-        //////////////////
-
         addbtn = (FloatingActionButton) findViewById(R.id.floating_button_add_new);
         eventsRecyclerView = (RecyclerView) findViewById(R.id.events_recycler_view);
         eventsRecyclerView.hasFixedSize();
@@ -57,13 +41,12 @@ public class EventsListActivity extends AppCompatActivity implements View.OnClic
         adapter = new EventAdapter(activity, eventsRecyclerView, Events);
         eventsRecyclerView.setAdapter(adapter);
         addbtn.setOnClickListener(this);
+
     }
 
     @Override
     public void onClick(View v) {
-        Intent eventDetail = new Intent(this, EventDetails.class);
-//        eventDetail.putExtra(event);
-        startActivity(eventDetail);
+
     }
     /*private void prepareData(){
         Events = new ArrayList<>();
