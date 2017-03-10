@@ -52,7 +52,7 @@ public class EventsListActivity extends AppCompatActivity implements View.OnClic
         super.onCreate(savedInstanceState);
         setContentView(R.layout.user_events_list);
 
-        addbtn = (FloatingActionButton) findViewById(R.id.floating_button_add_new);
+        addbtn = (FloatingActionButton) findViewById(R.id.fab);
         mArrLstEvents = new ArrayList<Event>();
         mArrLstHobbies = new ArrayList<Hobby>();
         eventsRecyclerView = (RecyclerView) findViewById(R.id.events_recycler_view);

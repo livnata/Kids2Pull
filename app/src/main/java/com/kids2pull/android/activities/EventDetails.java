@@ -9,6 +9,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -30,8 +31,8 @@ public class EventDetails extends AppCompatActivity implements HobbyTypeListShee
     private Event mEvent;
     private Hobby mHobby;
     private User mUser;
-    private Button mBtnPickup;
-    private Button mBtnDropOff;
+    private ImageView mBtnPickup;
+    private ImageView mBtnDropOff;
     private FirebaseDatabase mDatabase;
 
     private DatabaseReference mDatabaseReferenceUsers;
@@ -48,13 +49,13 @@ public class EventDetails extends AppCompatActivity implements HobbyTypeListShee
 
         initDatabases();
 
-        mBtnPickup = (Button)findViewById(R.id.PickUpButton);
-        mBtnDropOff = (Button)findViewById(R.id.DropOffButton);
+        mBtnPickup = (ImageView)findViewById(R.id.PickUpButton);
+        mBtnDropOff = (ImageView)findViewById(R.id.DropOffButton);
 
         mBtnDropOff.setOnClickListener( OnClickButtonDropOff);
         mBtnPickup.setOnClickListener( OnClickButtonPickup);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.floating_button_add_new);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -145,7 +146,7 @@ public class EventDetails extends AppCompatActivity implements HobbyTypeListShee
         Button setDate = (Button) findViewById(R.id.SetDate);
         if (setDate != null) {
             /*setDate.setText(mEvent.getEvent_date().toString());*/
-            setDate.setText(String.valueOf(mEvent.getEvent_date()));
+            setDate.setText(simpleDateFormat.format( mEvent.getEvent_date()));
         }
 
         EditText location = (EditText) findViewById(R.id.location);
