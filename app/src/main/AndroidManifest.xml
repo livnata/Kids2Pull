@@ -22,17 +22,18 @@
         <activity android:name=".activities.EventsListActivity"/>
 
         <activity android:name=".activities.SignInActivity">
-        </activity>
-
-        <activity
-            android:name=".activities.EventDetails"
-            android:label="@string/title_activity_event_details"
-            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".activities.EventDetails"
+            android:label="@string/title_activity_event_details"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
+
 
     </application>
 

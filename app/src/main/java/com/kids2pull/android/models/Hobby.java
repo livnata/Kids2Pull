@@ -2,6 +2,8 @@ package com.kids2pull.android.models;
 
 import android.location.Location;
 
+import org.joda.time.DateTime;
+
 import java.util.ArrayList;
 import java.util.UUID;
 
@@ -17,14 +19,16 @@ public class Hobby {
     private String address;
     private Location location;
     private ArrayList<String> usersIdsArray;
+    private DateTime hobby_date ;
 
-    public Hobby(String hobby_name, HobbyType hobby_type, String address, Location location, ArrayList<String> usersIdsArray) {
+    public Hobby(String hobby_name, HobbyType hobby_type, String address, Location location, ArrayList<String> usersIdsArray,DateTime hobby_date) {
         this.hobby_id = UUID.randomUUID().toString();
         this.hobby_name = hobby_name;
         this.hobby_type = hobby_type;
         this.address = address;
         this.location = location;
         this.usersIdsArray = usersIdsArray;
+        this.hobby_date = hobby_date;
     }
 
     public String getHobby_id() {
@@ -74,5 +78,13 @@ public class Hobby {
     public void setUsersIdsArray(ArrayList<String> usersIdsArray) {
         this.usersIdsArray = usersIdsArray;
     }
+    public DateTime getHobby_date() {
+        return hobby_date;
+    }
+
+    public void setHobby_date(DateTime hobby_date) {
+        this.hobby_date = hobby_date;
+    }
+
 
 }
