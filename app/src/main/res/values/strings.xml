@@ -3,6 +3,7 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_settings">Settings</string>
+    <string name="hobby_type">Choose hobby Type</string>
     <string name="WaitText">Please wait…</string>
     <string name="menu_login">Log in</string>
     <string name="menu_logout">Log out</string>

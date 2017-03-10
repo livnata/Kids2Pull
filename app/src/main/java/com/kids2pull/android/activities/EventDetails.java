@@ -11,16 +11,15 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.kids2pull.android.R;
+import com.kids2pull.android.fragments.HobbyTypeBottomSheetFragment;
+import com.kids2pull.android.fragments.HobbyTypeListSheetAdapter;
 import com.kids2pull.android.lib.DatePickerFragment;
 import com.kids2pull.android.lib.TimePickerFragment;
 import com.kids2pull.android.models.Event;
 import com.kids2pull.android.models.Hobby;
 
-public class EventDetails extends AppCompatActivity {
-
-    Event mEvent;
-    Hobby mHobby;
-
+public class EventDetails extends AppCompatActivity implements HobbyTypeListSheetAdapter.IEditHobbyTypeClickedSheetActionsListener
+        {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,7 +50,7 @@ public class EventDetails extends AppCompatActivity {
     private void readEvent()
     {
         //read event from db
-        
+
         EditText eventName = (EditText)findViewById(R.id.eventName);
         if(eventName != null)
         {
@@ -78,6 +77,17 @@ public class EventDetails extends AppCompatActivity {
 
     }
 
+    private boolean dismissBottomSheet() {
+        HobbyTypeBottomSheetFragment pEBottomSheetFragment
+                = (HobbyTypeBottomSheetFragment) getSupportFragmentManager()
+                .findFragmentByTag(HobbyTypeBottomSheetFragment.FRAGMENT_TAG);
+        if (pEBottomSheetFragment != null && pEBottomSheetFragment.isAdded()) {
+            pEBottomSheetFragment.onBackPressed();
+            return true;
+        } else {
+            return false;
+        }
+    }
     public void saveEvent()
     {
         //save event to db
@@ -85,4 +95,11 @@ public class EventDetails extends AppCompatActivity {
 //        event.setEvent_date();
     }
 
-}
+            @Override
+            public void onHobbyTypeItemClicked() {
+                dismissBottomSheet();
+                // TODO update the icon Hobby Type drawable in Edit Event according to the hobby Type
+
+
+            }
+        }

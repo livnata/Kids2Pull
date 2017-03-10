@@ -23,6 +23,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.kids2pull.android.R;
 import com.kids2pull.android.models.Event;
+import com.kids2pull.android.models.Hobbies_type;
 import com.kids2pull.android.models.Hobby;
 import com.kids2pull.android.models.HobbyType;
 import com.kids2pull.android.models.User;
@@ -101,7 +102,7 @@ public class SignInActivity extends BaseActivity implements View.OnClickListener
         mSignUpButton.setOnClickListener(this);
 
         mSignUpButton.setOnLongClickListener( OnLongSignUp);
-
+        createDummyDataHobby();
 
     }
 
@@ -297,6 +298,18 @@ public class SignInActivity extends BaseActivity implements View.OnClickListener
 //        }
 
     }
+    private void writeNewHobbyType(Hobbies_type aHobbyType) {
+        // Write new User
+        database = FirebaseDatabase.getInstance();
+        DatabaseReference mEventsDatabaseRef = database.getReference("hobbies_Types");
+        DatabaseReference mEventsRef = mEventsDatabaseRef.child(aHobbyType.getHobby_type_id());
+        mEventsRef.setValue(aHobbyType);
+
+//        if (isLast){
+//            createDummyData4();
+//        }
+
+    }
 
 
 
@@ -341,7 +354,7 @@ public class SignInActivity extends BaseActivity implements View.OnClickListener
 
         writeNewHobby( currentHobby, false);
 
-        currentHobby = new Hobby("Karate", HobbyType.MARTIAL, "Tzur Igal", null, mArrayUserIds,new DateTime().plusDays( 1));
+        currentHobby = new Hobby("Karate", HobbyType. COOCKING, "Tzur Igal", null, mArrayUserIds,new DateTime().plusDays( 1));
 
         mArrayHobbies.add( currentHobby);
 
@@ -363,6 +376,26 @@ public class SignInActivity extends BaseActivity implements View.OnClickListener
         currentEvent = new Event( mArrayHobbies.get( 2).getHobby_id(), mArrayHobbies.get( 2).getHobby_date());
 
         writeNewEvent( currentEvent, false);
+    }
+
+    private void createDummyDataHobby(){
+        Hobbies_type currentHobyType;
+
+        currentHobyType = new Hobbies_type("Sport");
+
+        writeNewHobbyType( currentHobyType);
+
+        currentHobyType = new Hobbies_type("Ballet");
+
+        writeNewHobbyType( currentHobyType);
+        currentHobyType = new Hobbies_type("Music");
+
+        writeNewHobbyType( currentHobyType);
+        currentHobyType = new Hobbies_type("Material");
+
+        writeNewHobbyType( currentHobyType);
+
+
     }
 
 

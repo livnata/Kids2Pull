@@ -69,7 +69,8 @@ public class GeneralFragmentDialog extends DialogFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setStyle(DialogFragment.STYLE_NO_TITLE, R.style.PopupGeneralTheme);
+        //TODO to return
+//        setStyle(DialogFragment.STYLE_NO_TITLE, R.style.PopupGeneralTheme);
 
         if (getArguments() != null) {
             mTitle = getArguments().getString(PARAM_TITLE);

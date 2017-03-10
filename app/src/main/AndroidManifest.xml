@@ -26,7 +26,9 @@
         </intent-filter>
         </activity>
 
-        <activity android:name=".activities.SignInActivity">
+        <activity android:name=".activities.EventDetails"
+            android:label="@string/title_activity_event_details"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                <!-- <category android:name="android.intent.category.LAUNCHER"/>-->
@@ -34,7 +36,7 @@
         </activity>
 
         <activity
-            android:name=".activities.EventDetails"
+            android:name=".activities.SignInActivity"
             android:label="@string/title_activity_event_details"
             android:theme="@style/AppTheme.NoActionBar"/>
 
