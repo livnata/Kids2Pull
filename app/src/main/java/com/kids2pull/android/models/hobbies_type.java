@@ -8,13 +8,12 @@ import java.util.UUID;
 
 public class Hobbies_type {
 
+    private String hobby_type_id;
+    private String hobby_type_name;
 
-    String hobby_type_id;
-    String hobby_typpe_name;
-
-    public Hobbies_type(String hobby_typpe_name) {
+    public Hobbies_type(String hobby_type_name) {
         this.hobby_type_id = UUID.randomUUID().toString();
-        this.hobby_typpe_name = hobby_typpe_name;
+        this.hobby_type_name = hobby_type_name;
     }
 
     public String getHobby_type_id() {
@@ -25,11 +24,11 @@ public class Hobbies_type {
         this.hobby_type_id = hobby_type_id;
     }
 
-    public String getHobby_typpe_name() {
-        return hobby_typpe_name;
+    public String getHobby_type_name() {
+        return hobby_type_name;
     }
 
-    public void setHobby_typpe_name(String hobby_typpe_name) {
-        this.hobby_typpe_name = hobby_typpe_name;
+    public void setHobby_type_name(String hobby_type_name) {
+        this.hobby_type_name = hobby_type_name;
     }
 }
