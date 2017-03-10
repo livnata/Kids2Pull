@@ -342,7 +342,7 @@ public class SignInActivity extends BaseActivity implements View.OnClickListener
 
         writeNewHobby( currentHobby, false);
 
-        currentHobby = new Hobby("Karate", HobbyType.MARTIAL, "Tzur Igal", null, mArrayUserIds,new DateTime().plusDays( 1).toDate().getTime());
+        currentHobby = new Hobby("Karate", HobbyType.ARTS, "Tzur Igal", null, mArrayUserIds,new DateTime().plusDays( 1).toDate().getTime());
 
         mArrayHobbies.add( currentHobby);
 
