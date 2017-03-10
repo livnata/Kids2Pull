@@ -35,7 +35,7 @@ public class EventsListActivity extends AppCompatActivity implements View.OnClic
     private Activity activity;
     private ArrayList<Hobby> mArrLstHobbies;
     private ArrayList<Event> mArrLstEvents;
-    private EventAdapter adapter;
+    private EventAdapter mEventAdapter;
     private LinearLayoutManager manager;
     private FloatingActionButton addbtn;
     //DB
@@ -59,8 +59,11 @@ public class EventsListActivity extends AppCompatActivity implements View.OnClic
         eventsRecyclerView.hasFixedSize();
         manager = new LinearLayoutManager(this);
         eventsRecyclerView.setLayoutManager(manager);
-        adapter = new EventAdapter(this, eventsRecyclerView, mArrLstEvents, mArrLstHobbies);
-        eventsRecyclerView.setAdapter(adapter);
+
+        mEventAdapter = new EventAdapter(this, eventsRecyclerView, mArrLstEvents, mArrLstHobbies);
+        eventsRecyclerView.setAdapter(mEventAdapter);
+
+
         addbtn.setOnClickListener(this);
         //Read from DB
         //get reference to events
@@ -104,7 +107,10 @@ public class EventsListActivity extends AppCompatActivity implements View.OnClic
                     Event event = snapshot.getValue(Event.class);
                     mArrLstEvents.add(event);
                 }
-                adapter.notifyDataSetChanged();
+
+
+
+                mEventAdapter.notifyDataSetChanged();
             }
 
 
@@ -122,7 +128,9 @@ public class EventsListActivity extends AppCompatActivity implements View.OnClic
                     Hobby hobby = snapshot.getValue(Hobby.class);
                     mArrLstHobbies.add(hobby);
                 }
-                adapter.notifyDataSetChanged();
+
+                mEventAdapter.setmArrLstHobbies(mArrLstHobbies);
+                mEventAdapter.notifyDataSetChanged();
             }
 
             @Override
@@ -130,6 +138,7 @@ public class EventsListActivity extends AppCompatActivity implements View.OnClic
 
             }
         });
+
     }
 
     @Override
