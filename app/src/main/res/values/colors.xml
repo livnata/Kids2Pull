@@ -16,6 +16,7 @@
     <color name="text_blue">#33b5e5</color>
     <color name="text_blue_alpha">#7733b5e5</color>
     <color name="gray">#b3b3b3</color>
+    <color name="light_gray">#f7f7f7</color>
     <color name="transparent_full_black">#00000000</color>
 
     <!-- v3 colors -->
