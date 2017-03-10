@@ -46,9 +46,7 @@ public class EventDetails extends AppCompatActivity implements HobbyTypeListShee
 
         setSupportActionBar(toolbar);
 
-
         initDatabases();
-
 
         mBtnPickup = (Button)findViewById(R.id.PickUpButton);
         mBtnDropOff = (Button)findViewById(R.id.DropOffButton);

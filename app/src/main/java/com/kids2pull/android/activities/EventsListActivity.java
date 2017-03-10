@@ -42,13 +42,16 @@ public class EventsListActivity extends AppCompatActivity implements View.OnClic
     //DB
     private User mUser;
     private FirebaseDatabase database;
+    private DatabaseReference mDatabaseReferenceUsers;
+    private DatabaseReference mDatabaseReferenceHobbies;
+    private DatabaseReference mDatabaseReferenceEvents;
+
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.user_events_list);
-
-
 
         addbtn = (FloatingActionButton) findViewById(R.id.floating_button_add_new);
         Events = new ArrayList<Event>();
@@ -63,11 +66,37 @@ public class EventsListActivity extends AppCompatActivity implements View.OnClic
         //Read from DB
         //get reference to events
         database = FirebaseDatabase.getInstance();
-        DatabaseReference referenceEvents = database.getReference("events");
-        DatabaseReference referenceHobbies = database.getReference("hobbies");
+        mDatabaseReferenceEvents = database.getReference("events");
+        mDatabaseReferenceHobbies = database.getReference("hobbies");
+        mDatabaseReferenceUsers = database.getReference("users");
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        String userid;
+
+        userid = getIntent().getStringExtra("user_id");
+
+        DatabaseReference referenceUsers = database.getReference("users").child(userid);
+
+        referenceUsers.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                mUser = dataSnapshot.getValue(User.class);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                
+            }
+        });
+
 
         //attach a listener to read the data at events reference
-        referenceEvents.addValueEventListener(new ValueEventListener() {
+        mDatabaseReferenceEvents.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
@@ -83,7 +112,7 @@ public class EventsListActivity extends AppCompatActivity implements View.OnClic
                 Toast.makeText(EventsListActivity.this, "The read failed", Toast.LENGTH_SHORT).show();
             }
         });
-        referenceHobbies.addValueEventListener(new ValueEventListener() {
+        mDatabaseReferenceHobbies.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
@@ -98,41 +127,6 @@ public class EventsListActivity extends AppCompatActivity implements View.OnClic
 
             }
         });
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-        String userid;
-
-        userid = getIntent().getStringExtra("user_id");
-
-        DatabaseReference referenceUsers = database.getReference("users").child( userid);
-
-        referenceUsers.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                mUser = dataSnapshot.getValue(User.class);
-            }
-        });
-        referenceHobbies.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    Hobby hobby = snapshot.getValue(Hobby.class);
-                    hobbies.add(hobby);
-                }
-                adapter.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-
-
     }
 
     @Override
