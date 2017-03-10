@@ -16,18 +16,18 @@ import com.kids2pull.android.fragments.HobbyTypeListSheetAdapter;
 import com.kids2pull.android.lib.DatePickerFragment;
 import com.kids2pull.android.lib.TimePickerFragment;
 import com.kids2pull.android.models.Event;
+import com.kids2pull.android.models.Hobby;
 
-public class EventDetails extends AppCompatActivity implements HobbyTypeListSheetAdapter.IEditHobbyTypeClickedSheetActionsListener
-        {
-            private Event mEvent;
+public class EventDetails extends AppCompatActivity implements HobbyTypeListSheetAdapter.IEditHobbyTypeClickedSheetActionsListener {
+    private Event mEvent;
+    private Hobby mHobby;
 
-            @Override
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event_details);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        readEvent();
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -36,6 +36,17 @@ public class EventDetails extends AppCompatActivity implements HobbyTypeListShee
                         .setAction("Action", null).show();
             }
         });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        mEvent = (Event) getIntent().getSerializableExtra("event");
+        mHobby = (Hobby) getIntent().getSerializableExtra("hobby");
+
+        readEvent();
+
     }
 
     public void showTimePickerDialog(View v) {
@@ -48,33 +59,28 @@ public class EventDetails extends AppCompatActivity implements HobbyTypeListShee
         newFragment.show(getSupportFragmentManager(), "datePicker");
     }
 
-    private void readEvent()
-    {
+    private void readEvent() {
         //read event from db
 
-        EditText eventName = (EditText)findViewById(R.id.eventName);
-        if(eventName != null)
-        {
+        EditText eventName = (EditText) findViewById(R.id.eventName);
+        if (eventName != null) {
 //            eventName.setText(mEvent.getEventName);
         }
 
-        Button setTime = (Button)findViewById(R.id.SetTime);
-        if(setTime != null)
-        {
+        Button setTime = (Button) findViewById(R.id.SetTime);
+        if (setTime != null) {
            /* setTime.setText(mEvent.getEvent_date().toString);*/
-           setTime.setText(String.valueOf(mEvent.getEvent_date()));
+            setTime.setText(String.valueOf(mEvent.getEvent_date()));
         }
 
-        Button setDate = (Button)findViewById(R.id.SetDate);
-        if(setDate != null)
-        {
+        Button setDate = (Button) findViewById(R.id.SetDate);
+        if (setDate != null) {
             /*setDate.setText(mEvent.getEvent_date().toString());*/
             setDate.setText(String.valueOf(mEvent.getEvent_date()));
         }
 
-        EditText location = (EditText)findViewById(R.id.location);
-        if(location != null)
-        {
+        EditText location = (EditText) findViewById(R.id.location);
+        if (location != null) {
 //            location.setText(mEvent.getLocation());
         }
 
@@ -91,18 +97,18 @@ public class EventDetails extends AppCompatActivity implements HobbyTypeListShee
             return false;
         }
     }
-    public void saveEvent()
-    {
+
+    public void saveEvent() {
         //save event to db
 //        Event event = new Event();
 //        event.setEvent_date();
     }
 
-            @Override
-            public void onHobbyTypeItemClicked() {
-                dismissBottomSheet();
-                // TODO update the icon Hobby Type drawable in Edit Event according to the hobby Type
+    @Override
+    public void onHobbyTypeItemClicked() {
+        dismissBottomSheet();
+        // TODO update the icon Hobby Type drawable in Edit Event according to the hobby Type
 
 
-            }
-        }
+    }
+}

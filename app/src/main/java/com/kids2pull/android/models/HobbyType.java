@@ -2,10 +2,12 @@ package com.kids2pull.android.models;
 
 import com.kids2pull.android.R;
 
+import java.io.Serializable;
+
 /**
  * Created by livnatavikasis on 05/03/2017.
  */
-public enum HobbyType {
+public enum HobbyType implements Serializable{
     SPORT("Sports", R.drawable.fill_11), BALLET("Ballet", R.drawable.page_1), MUSIC("Music", R.drawable.fill_3), COOCKING("Coocking"), ARTS("Arts");
     String hobbyName;
     int drawableId ;

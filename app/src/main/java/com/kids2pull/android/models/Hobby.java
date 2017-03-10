@@ -5,6 +5,7 @@ import android.location.Location;
 
 import org.joda.time.DateTime;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.UUID;
@@ -13,7 +14,7 @@ import java.util.UUID;
  * Created by livnatavikasis on 05/03/2017.
  */
 
-public class Hobby {
+public class Hobby implements Serializable {
 
     private String hobby_id;
     private String hobby_name;

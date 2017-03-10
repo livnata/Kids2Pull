@@ -107,7 +107,8 @@ public class EventsListActivity extends AppCompatActivity implements View.OnClic
     @Override
     public void onEventClicked(Event event, Hobby hobby) {
         Intent intent = new Intent(EventsListActivity.this, EventDetails.class);
-        intent.putExtra("name_hobby",hobby.getHobby_name());
+        intent.putExtra("hobby", hobby);
+        intent.putExtra("event", event);
         startActivity(intent);
     }
 }

@@ -2,6 +2,7 @@ package com.kids2pull.android.models;
 
 import org.joda.time.DateTime;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.UUID;
@@ -10,7 +11,7 @@ import java.util.UUID;
  * Created by livnatavikasis on 05/03/2017.
  */
 
-public class Event {
+public class Event implements Serializable {
 
     private String event_id;
     private String hobby_id;

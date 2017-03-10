@@ -1,12 +1,13 @@
 package com.kids2pull.android.models;
 
+import java.io.Serializable;
 import java.util.UUID;
 
 /**
  * Created by livnatavikasis on 10/03/2017.
  */
 
-public class Hobbies_type {
+public class Hobbies_type implements Serializable {
 
     private String hobby_type_id;
     private String hobby_type_name;
