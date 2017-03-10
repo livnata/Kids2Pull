@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.kids2pull.android.R;
 import com.kids2pull.android.fragments.HobbyTypeBottomSheetFragment;
 import com.kids2pull.android.fragments.HobbyTypeListSheetAdapter;
@@ -20,6 +22,8 @@ import com.kids2pull.android.models.Hobby;
 import com.kids2pull.android.models.User;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 
 public class EventDetails extends AppCompatActivity implements HobbyTypeListSheetAdapter.IEditHobbyTypeClickedSheetActionsListener {
 
@@ -28,6 +32,11 @@ public class EventDetails extends AppCompatActivity implements HobbyTypeListShee
     private User mUser;
     private Button mBtnPickup;
     private Button mBtnDropOff;
+    private FirebaseDatabase mDatabase;
+
+    private DatabaseReference mDatabaseReferenceUsers;
+    private DatabaseReference mDatabaseReferenceHobies;
+    private DatabaseReference mDatabaseReferenceEvents;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +45,8 @@ public class EventDetails extends AppCompatActivity implements HobbyTypeListShee
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 
         setSupportActionBar(toolbar);
+
+        initDatabases();
 
         mBtnPickup = (Button)findViewById(R.id.PickUpButton);
         mBtnDropOff = (Button)findViewById(R.id.DropOffButton);
@@ -79,12 +90,28 @@ public class EventDetails extends AppCompatActivity implements HobbyTypeListShee
         }
     };
 
-    private void onClickDropOff(){
 
+    private void initDatabases(){
+        mDatabase = FirebaseDatabase.getInstance();
+        mDatabaseReferenceEvents = mDatabase.getReference( "events");
+        mDatabaseReferenceHobies = mDatabase.getReference( "hobbies");
+        mDatabaseReferenceUsers = mDatabase.getReference( "users");
+    }
+
+    private void onClickDropOff(){
+        ArrayList<String> listUsers;
+        listUsers = new ArrayList<String>();
+        listUsers.add( mUser.getUserId());
+
+        mDatabaseReferenceEvents.child( mEvent.getEvent_id()).child("user_ids_spreader").setValue( listUsers);
     }
 
     private void onClickPickup(){
+        ArrayList<String> listUsers;
+        listUsers = new ArrayList<String>();
+        listUsers.add( mUser.getUserId());
 
+        mDatabaseReferenceEvents.child( mEvent.getEvent_id()).child("user_ids_picker").setValue( listUsers);
     }
 
     public void showTimePickerDialog(View v) {

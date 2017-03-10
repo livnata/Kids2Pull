@@ -3,7 +3,6 @@ package com.kids2pull.android.activities;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
@@ -34,45 +33,76 @@ public class EventsListActivity extends AppCompatActivity implements View.OnClic
 
     private RecyclerView eventsRecyclerView;
     private Activity activity;
-    private ArrayList<Hobby> hobbies;
-    private ArrayList<Event> Events;
+    private ArrayList<Hobby> mArrLstHobbies;
+    private ArrayList<Event> mArrLstEvents;
     private EventAdapter adapter;
     private LinearLayoutManager manager;
     private FloatingActionButton addbtn;
     //DB
     private User mUser;
     private FirebaseDatabase database;
+    private DatabaseReference mDatabaseReferenceUsers;
+    private DatabaseReference mDatabaseReferenceHobbies;
+    private DatabaseReference mDatabaseReferenceEvents;
+
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.user_events_list);
 
-
-
         addbtn = (FloatingActionButton) findViewById(R.id.floating_button_add_new);
-        Events = new ArrayList<Event>();
-        hobbies = new ArrayList<Hobby>();
+        mArrLstEvents = new ArrayList<Event>();
+        mArrLstHobbies = new ArrayList<Hobby>();
         eventsRecyclerView = (RecyclerView) findViewById(R.id.events_recycler_view);
         eventsRecyclerView.hasFixedSize();
-        manager = new LinearLayoutManager(activity);
+        manager = new LinearLayoutManager(this);
         eventsRecyclerView.setLayoutManager(manager);
-        adapter = new EventAdapter(this, eventsRecyclerView, Events, hobbies);
+        adapter = new EventAdapter(this, eventsRecyclerView, mArrLstEvents, mArrLstHobbies);
         eventsRecyclerView.setAdapter(adapter);
         addbtn.setOnClickListener(this);
         //Read from DB
         //get reference to events
         database = FirebaseDatabase.getInstance();
-        DatabaseReference referenceEvents = database.getReference("events");
-        DatabaseReference referenceHobbies = database.getReference("hobbies");
+        mDatabaseReferenceEvents = database.getReference("events");
+        mDatabaseReferenceHobbies = database.getReference("mArrLstHobbies");
+        mDatabaseReferenceUsers = database.getReference("users");
 
-        //attach a listener to read the data at events reference
-        referenceEvents.addValueEventListener(new ValueEventListener() {
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        String userid;
+
+        userid = getIntent().getStringExtra("user_id");
+
+        DatabaseReference referenceUsers = database.getReference("users").child(userid);
+
+        referenceUsers.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                mUser = dataSnapshot.getValue(User.class);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+
+        //attach a listener to read the data at events reference
+        mDatabaseReferenceEvents.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                mArrLstEvents.clear();
+
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     Event event = snapshot.getValue(Event.class);
-                    Events.add(event);
+                    mArrLstEvents.add(event);
                 }
                 adapter.notifyDataSetChanged();
             }
@@ -81,15 +111,16 @@ public class EventsListActivity extends AppCompatActivity implements View.OnClic
             @Override
             public void onCancelled(DatabaseError databaseError) {
                 Toast.makeText(EventsListActivity.this, "The read failed", Toast.LENGTH_SHORT).show();
-
             }
         });
-        referenceHobbies.addValueEventListener(new ValueEventListener() {
+        mDatabaseReferenceHobbies.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                mArrLstHobbies.clear();
+
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     Hobby hobby = snapshot.getValue(Hobby.class);
-                    hobbies.add(hobby);
+                    mArrLstHobbies.add(hobby);
                 }
                 adapter.notifyDataSetChanged();
             }
@@ -99,13 +130,6 @@ public class EventsListActivity extends AppCompatActivity implements View.OnClic
 
             }
         });
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-        mUser = (User)getIntent().getSerializableExtra( "user");
     }
 
     @Override

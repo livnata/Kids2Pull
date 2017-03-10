@@ -142,7 +142,11 @@ public class SignInActivity extends BaseActivity implements View.OnClickListener
                 }
 
                 if (task.isSuccessful()){
-                    openListEvents();
+                    String userId;
+
+                    userId = task.getResult().getUser().getUid();
+
+                    openListEvents( userId);
                 }
             }
         });
@@ -167,7 +171,7 @@ public class SignInActivity extends BaseActivity implements View.OnClickListener
                         if (!task.isSuccessful()) {
                             Toast.makeText(SignInActivity.this, R.string.sign_up_failed, Toast.LENGTH_SHORT).show();
                         } else {
-                            writeNewUser( aEmail, aPhoneNumber, aEmail, isLast);
+                            writeNewUser( task.getResult().getUser().getUid(), aEmail, aPhoneNumber, aEmail, isLast);
                         }
 
                     }
@@ -209,12 +213,12 @@ public class SignInActivity extends BaseActivity implements View.OnClickListener
 
     // [START basic_write]
     // [START basic_write]
-    private void writeNewUser(String userEmail, String phoneNumber, String userName, boolean isLast) {
+    private void writeNewUser(String aUserId, String userEmail, String phoneNumber, String userName, boolean isLast) {
         // Write new User
-        mUser = new User(userName, userEmail, phoneNumber, "");
+        mUser = new User(aUserId, userName, userEmail, phoneNumber, "");
         database = FirebaseDatabase.getInstance();
         DatabaseReference mUsersDatabaseRef = database.getReference("users");
-        DatabaseReference mUserRef = mUsersDatabaseRef.child(mUser.getUserId());
+        final DatabaseReference mUserRef = mUsersDatabaseRef.child(mUser.getUserId());
         mUserRef.setValue(mUser);
 
         mArrayListUsers.add( mUser);
@@ -227,7 +231,7 @@ public class SignInActivity extends BaseActivity implements View.OnClickListener
         mChildEventListener = new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                openListEvents();
+                openListEvents(mUser.getUserId());
                 System.out.println("Data saved successfully.");
             }
 
@@ -268,11 +272,11 @@ public class SignInActivity extends BaseActivity implements View.OnClickListener
 
     }
 
-    private void openListEvents(){
+    private void openListEvents(String aUserId){
         Intent intentEventsList;
 
         intentEventsList = new Intent(SignInActivity.this, EventsListActivity.class);
-        intentEventsList.putExtra( "user", mUser);
+        intentEventsList.putExtra( "user_id", aUserId);
 
         startActivity(intentEventsList);
         finish();
