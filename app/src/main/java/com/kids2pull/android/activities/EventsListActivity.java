@@ -40,7 +40,8 @@ public class EventsListActivity extends AppCompatActivity implements View.OnClic
     private FloatingActionButton addbtn;
     //DB
     private FirebaseDatabase database;
-    private DatabaseReference reference;
+
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
         super.onCreate(savedInstanceState, persistentState);
@@ -57,17 +58,21 @@ public class EventsListActivity extends AppCompatActivity implements View.OnClic
         //Read from DB
         //get reference to events
         database = FirebaseDatabase.getInstance();
-        reference = database.getReference("events");
-        reference = database.getReference("hobbies");
+        DatabaseReference referenceEvents = database.getReference("events");
+        DatabaseReference referenceHobbies = database.getReference("hobbies");
+        Events = new ArrayList<Event>();
+        hobbies = new ArrayList<Hobby>();
         //attach a listener to read the data at events reference
-        reference.addValueEventListener(new ValueEventListener() {
+        referenceEvents.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                Event event = dataSnapshot.getValue(Event.class);
-                Hobby hobby = dataSnapshot.getValue(Hobby.class);
+                for(DataSnapshot snapshot : dataSnapshot.getChildren()){
+                Event event = snapshot.getValue(Event.class);
                 Events.add(event);
-                hobbies.add(hobby);
+
+                }
             }
+
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
@@ -75,7 +80,21 @@ public class EventsListActivity extends AppCompatActivity implements View.OnClic
 
             }
         });
+    referenceHobbies.addValueEventListener(new ValueEventListener() {
+        @Override
+        public void onDataChange(DataSnapshot dataSnapshot) {
+            for(DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                Hobby hobby = snapshot.getValue(Hobby.class);
+                hobbies.add(hobby);
+            }
 
+        }
+
+        @Override
+        public void onCancelled(DatabaseError databaseError) {
+
+        }
+    });
     }
 
     @Override

@@ -81,7 +81,7 @@ public class EventDetails extends AppCompatActivity {
     public void saveEvent()
     {
         //save event to db
-        Event event = new Event();
+//        Event event = new Event();
 //        event.setEvent_date();
     }
 
