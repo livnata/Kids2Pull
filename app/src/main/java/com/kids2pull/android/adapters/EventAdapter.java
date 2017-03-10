@@ -26,7 +26,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventHolder>
     private ArrayList<Hobby> hobbies;
     private EventHolder holder;
     private EventClicked callback;
-    private int id_hobby;
+    private String id_hobby;
 
 
     public static interface EventClicked {
