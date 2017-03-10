@@ -21,6 +21,7 @@ import com.kids2pull.android.R;
 import com.kids2pull.android.adapters.EventAdapter;
 import com.kids2pull.android.models.Event;
 import com.kids2pull.android.models.Hobby;
+import com.kids2pull.android.models.User;
 
 import java.util.ArrayList;
 
@@ -29,7 +30,7 @@ import java.util.ArrayList;
  */
 
 public class EventsListActivity extends AppCompatActivity implements View.OnClickListener,
-        EventAdapter.EventClicked{
+        EventAdapter.EventClicked {
 
     private RecyclerView eventsRecyclerView;
     private Activity activity;
@@ -39,12 +40,16 @@ public class EventsListActivity extends AppCompatActivity implements View.OnClic
     private LinearLayoutManager manager;
     private FloatingActionButton addbtn;
     //DB
+    private User mUser;
     private FirebaseDatabase database;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.user_events_list);
+
+
+
         addbtn = (FloatingActionButton) findViewById(R.id.floating_button_add_new);
         Events = new ArrayList<Event>();
         hobbies = new ArrayList<Hobby>();
@@ -52,7 +57,7 @@ public class EventsListActivity extends AppCompatActivity implements View.OnClic
         eventsRecyclerView.hasFixedSize();
         manager = new LinearLayoutManager(activity);
         eventsRecyclerView.setLayoutManager(manager);
-        adapter = new EventAdapter(this, eventsRecyclerView, Events,hobbies);
+        adapter = new EventAdapter(this, eventsRecyclerView, Events, hobbies);
         eventsRecyclerView.setAdapter(adapter);
         addbtn.setOnClickListener(this);
         //Read from DB
@@ -65,10 +70,9 @@ public class EventsListActivity extends AppCompatActivity implements View.OnClic
         referenceEvents.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                for(DataSnapshot snapshot : dataSnapshot.getChildren()){
-                Event event = snapshot.getValue(Event.class);
-                Events.add(event);
-
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    Event event = snapshot.getValue(Event.class);
+                    Events.add(event);
                 }
                 adapter.notifyDataSetChanged();
             }
@@ -76,27 +80,32 @@ public class EventsListActivity extends AppCompatActivity implements View.OnClic
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                Toast.makeText(EventsListActivity.this,"The read failed",Toast.LENGTH_SHORT).show();
+                Toast.makeText(EventsListActivity.this, "The read failed", Toast.LENGTH_SHORT).show();
 
             }
         });
-    referenceHobbies.addValueEventListener(new ValueEventListener() {
-        @Override
-        public void onDataChange(DataSnapshot dataSnapshot) {
-            for(DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                Hobby hobby = snapshot.getValue(Hobby.class);
-                hobbies.add(hobby);
+        referenceHobbies.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    Hobby hobby = snapshot.getValue(Hobby.class);
+                    hobbies.add(hobby);
+                }
+                adapter.notifyDataSetChanged();
             }
-            adapter.notifyDataSetChanged();
-        }
 
-        @Override
-        public void onCancelled(DatabaseError databaseError) {
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
 
-        }
-    });
+            }
+        });
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
 
+        mUser = (User)getIntent().getSerializableExtra( "user");
     }
 
     @Override
@@ -109,6 +118,7 @@ public class EventsListActivity extends AppCompatActivity implements View.OnClic
         Intent intent = new Intent(EventsListActivity.this, EventDetails.class);
         intent.putExtra("hobby", hobby);
         intent.putExtra("event", event);
+        intent.putExtra("user", mUser);
         startActivity(intent);
     }
 }

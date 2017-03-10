@@ -17,19 +17,32 @@ import com.kids2pull.android.lib.DatePickerFragment;
 import com.kids2pull.android.lib.TimePickerFragment;
 import com.kids2pull.android.models.Event;
 import com.kids2pull.android.models.Hobby;
+import com.kids2pull.android.models.User;
 
 import java.text.SimpleDateFormat;
 
 public class EventDetails extends AppCompatActivity implements HobbyTypeListSheetAdapter.IEditHobbyTypeClickedSheetActionsListener {
+
     private Event mEvent;
     private Hobby mHobby;
+    private User mUser;
+    private Button mBtnPickup;
+    private Button mBtnDropOff;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event_details);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+
         setSupportActionBar(toolbar);
+
+        mBtnPickup = (Button)findViewById(R.id.PickUpButton);
+        mBtnDropOff = (Button)findViewById(R.id.DropOffButton);
+
+        mBtnDropOff.setOnClickListener( OnClickButtonDropOff);
+        mBtnPickup.setOnClickListener( OnClickButtonPickup);
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,10 +57,33 @@ public class EventDetails extends AppCompatActivity implements HobbyTypeListShee
     protected void onResume() {
         super.onResume();
 
+        mUser = (User) getIntent().getSerializableExtra("user");
         mEvent = (Event) getIntent().getSerializableExtra("event");
         mHobby = (Hobby) getIntent().getSerializableExtra("hobby");
 
         readEvent();
+
+    }
+
+    private View.OnClickListener OnClickButtonDropOff = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            onClickDropOff();
+        }
+    };
+
+    private View.OnClickListener OnClickButtonPickup = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            onClickPickup();
+        }
+    };
+
+    private void onClickDropOff(){
+
+    }
+
+    private void onClickPickup(){
 
     }
 

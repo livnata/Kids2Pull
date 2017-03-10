@@ -140,6 +140,10 @@ public class SignInActivity extends BaseActivity implements View.OnClickListener
                     Toast.makeText(SignInActivity.this, R.string.sign_in_failed, Toast.LENGTH_SHORT).show();
 
                 }
+
+                if (task.isSuccessful()){
+                    openListEvents();
+                }
             }
         });
     }
@@ -223,8 +227,7 @@ public class SignInActivity extends BaseActivity implements View.OnClickListener
         mChildEventListener = new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                startActivity(new Intent(SignInActivity.this, MainActivity.class));
-                finish();
+                openListEvents();
                 System.out.println("Data saved successfully.");
             }
 
@@ -263,6 +266,16 @@ public class SignInActivity extends BaseActivity implements View.OnClickListener
 
         }
 
+    }
+
+    private void openListEvents(){
+        Intent intentEventsList;
+
+        intentEventsList = new Intent(SignInActivity.this, EventsListActivity.class);
+        intentEventsList.putExtra( "user", mUser);
+
+        startActivity(intentEventsList);
+        finish();
     }
 
     private View.OnLongClickListener OnLongSignUp = new View.OnLongClickListener() {

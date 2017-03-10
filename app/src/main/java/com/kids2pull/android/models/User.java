@@ -2,13 +2,14 @@ package com.kids2pull.android.models;
 
 import org.joda.time.DateTime;
 
+import java.io.Serializable;
 import java.util.UUID;
 
 /**
  * Created by livnatavikasis on 05/03/2017.
  */
 
-public class User {
+public class User implements Serializable {
     private String phone_number;
     private String first_name;
     private String last_name;
