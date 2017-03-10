@@ -45,7 +45,7 @@
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:background="@color/white"
-        android:text="Event Name"
+        android:text="Ballet"
         android:layout_below="@id/images" />
 
     <android.support.v7.widget.LinearLayoutCompat
@@ -61,6 +61,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/pick_time"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+
             android:onClick="showTimePickerDialog"
             android:layout_below="@+id/eventName" />
 
@@ -68,6 +71,8 @@
             android:id="@+id/SetDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
             android:text="@string/pick_date"
             android:onClick="showDatePickerDialog" />
     </android.support.v7.widget.LinearLayoutCompat>
@@ -84,8 +89,16 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:background="@color/white"
-            android:text="@string/location" />
+            android:text="@string/address" />
 
+
+        <EditText
+            android:id="@+id/notification"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@color/white"
+            android:layout_marginTop="16dp"
+            android:text="@string/notification_detail" />
         <android.support.v7.widget.SwitchCompat
             android:text="Repeat"
             android:layout_width="wrap_content"
@@ -93,29 +106,30 @@
             android:layout_below="@+id/location"
             android:id="@+id/toggleButton"
             android:switchMinWidth="14sp"
+            android:layout_marginTop="32dp"
+            android:layout_marginLeft="36dp"
             android:textOn="@string/repit_event"
             android:textOff="@string/repit_event_off" />
 
-        <EditText
-            android:id="@+id/notification"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:background="@color/white"
-            android:text="@string/notification" />
         <android.support.v7.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/pick_and_drop"
+            android:layout_marginTop="48dp"
             android:orientation="horizontal">
-            <Button
+            <ImageView
                 android:id="@+id/PickUpButton"
-                android:layout_width="100dp"
+                android:layout_width="32dp"
                 android:layout_height="50dp"
+                android:src="@drawable/oval_76_copy_2"
+                android:layout_marginLeft="40dp"
                 android:text="@string/pick_up_button"/>
-            <Button
+            <ImageView
                 android:id="@+id/DropOffButton"
-                android:layout_width="100dp"
+                android:layout_width="32dp"
                 android:layout_height="50dp"
+                android:layout_marginLeft="40dp"
+                android:src="@drawable/oval_76_copy"
                 android:text="@string/drop_off_button"/>
         </android.support.v7.widget.LinearLayoutCompat>
 
@@ -126,6 +140,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"/>
+        android:layout_alignParentStart="true"
+        />
 </RelativeLayout>
